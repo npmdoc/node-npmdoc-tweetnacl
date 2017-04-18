@@ -1,0 +1,5482 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://tweetnacl.js.org"
+
+    >tweetnacl (v0.14.5)</a>
+</h1>
+<h4>Port of TweetNaCl cryptographic library to JavaScript</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl">module tweetnacl</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>box
+            <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.before">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>box.before
+            <span class="apidocSignatureSpan">(publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.keyPair">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>box.keyPair
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.open">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>box.open
+            <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.hash">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>hash
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box
+            <span class="apidocSignatureSpan">(c, m, d, n, y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box_beforenm
+            <span class="apidocSignatureSpan">(k, y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_keypair">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box_keypair
+            <span class="apidocSignatureSpan">(y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_open">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box_open
+            <span class="apidocSignatureSpan">(m, c, d, n, y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_core_hsalsa20
+            <span class="apidocSignatureSpan">(out, inp, k, c)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_hash">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_hash
+            <span class="apidocSignatureSpan">(out, m, n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_onetimeauth
+            <span class="apidocSignatureSpan">(out, outpos, m, mpos, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_onetimeauth_verify
+            <span class="apidocSignatureSpan">(h, hpos, m, mpos, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_scalarmult
+            <span class="apidocSignatureSpan">(q, n, p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_scalarmult_base
+            <span class="apidocSignatureSpan">(q, n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_secretbox
+            <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_secretbox_open
+            <span class="apidocSignatureSpan">(m, c, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_sign
+            <span class="apidocSignatureSpan">(sm, m, n, sk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_sign_keypair
+            <span class="apidocSignatureSpan">(pk, sk, seeded)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_open">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_sign_open
+            <span class="apidocSignatureSpan">(m, sm, n, pk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream
+            <span class="apidocSignatureSpan">(c, cpos, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream_salsa20
+            <span class="apidocSignatureSpan">(c, cpos, b, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream_salsa20_xor
+            <span class="apidocSignatureSpan">(c, cpos, m, mpos, b, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_xor">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream_xor
+            <span class="apidocSignatureSpan">(c, cpos, m, mpos, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_16">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_verify_16
+            <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_32">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_verify_32
+            <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.randomBytes">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>randomBytes
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.scalarMult">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>scalarMult
+            <span class="apidocSignatureSpan">(n, p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.scalarMult.base">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>scalarMult.base
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.secretbox">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>secretbox
+            <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.secretbox.open">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>secretbox.open
+            <span class="apidocSignatureSpan">(box, nonce, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.setPRNG">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>setPRNG
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>sign
+            <span class="apidocSignatureSpan">(msg, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.detached">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>sign.detached
+            <span class="apidocSignatureSpan">(msg, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.keyPair">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>sign.keyPair
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.open">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>sign.open
+            <span class="apidocSignatureSpan">(signedMsg, publicKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.util.decodeBase64">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>util.decodeBase64
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.verify">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>verify
+            <span class="apidocSignatureSpan">(x, y)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tweetnacl.</span>nacl</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tweetnacl.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.box">module tweetnacl.box</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.box">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>box
+            <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.after">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>after
+            <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.before">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>before
+            <span class="apidocSignatureSpan">(publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.keyPair">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>keyPair
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.open">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>open
+            <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.box.</span>nonceLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.box.</span>overheadLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.box.</span>publicKeyLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.box.</span>secretKeyLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.box.</span>sharedKeyLength</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.box.before">module tweetnacl.box.before</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.before.before">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>before
+            <span class="apidocSignatureSpan">(publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.box.keyPair">module tweetnacl.box.keyPair</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.keyPair.keyPair">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>keyPair
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.keyPair.fromSecretKey">
+            function <span class="apidocSignatureSpan">tweetnacl.box.keyPair.</span>fromSecretKey
+            <span class="apidocSignatureSpan">(secretKey)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.box.open">module tweetnacl.box.open</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.open.open">
+            function <span class="apidocSignatureSpan">tweetnacl.box.</span>open
+            <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.box.open.after">
+            function <span class="apidocSignatureSpan">tweetnacl.box.open.</span>after
+            <span class="apidocSignatureSpan">(box, nonce, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.hash">module tweetnacl.hash</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.hash.hash">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>hash
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.hash.</span>hashLength</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel">module tweetnacl.lowlevel</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box
+            <span class="apidocSignatureSpan">(c, m, d, n, y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_afternm">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_afternm
+            <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_beforenm
+            <span class="apidocSignatureSpan">(k, y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_keypair">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_keypair
+            <span class="apidocSignatureSpan">(y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_open">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_open
+            <span class="apidocSignatureSpan">(m, c, d, n, y, x)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_core_hsalsa20
+            <span class="apidocSignatureSpan">(out, inp, k, c)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_hash">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_hash
+            <span class="apidocSignatureSpan">(out, m, n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth
+            <span class="apidocSignatureSpan">(out, outpos, m, mpos, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth_verify
+            <span class="apidocSignatureSpan">(h, hpos, m, mpos, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult
+            <span class="apidocSignatureSpan">(q, n, p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult_base
+            <span class="apidocSignatureSpan">(q, n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox
+            <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_open
+            <span class="apidocSignatureSpan">(m, c, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign
+            <span class="apidocSignatureSpan">(sm, m, n, sk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_keypair
+            <span class="apidocSignatureSpan">(pk, sk, seeded)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_open">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_open
+            <span class="apidocSignatureSpan">(m, sm, n, pk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream
+            <span class="apidocSignatureSpan">(c, cpos, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20
+            <span class="apidocSignatureSpan">(c, cpos, b, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20_xor
+            <span class="apidocSignatureSpan">(c, cpos, m, mpos, b, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_xor">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_xor
+            <span class="apidocSignatureSpan">(c, cpos, m, mpos, d, n, k)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_16">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_16
+            <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_32">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_32
+            <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_BEFORENMBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_BOXZEROBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_NONCEBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_PUBLICKEYBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_SECRETKEYBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_ZEROBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_hash_BYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult_BYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult_SCALARBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_BOXZEROBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_KEYBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_NONCEBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_ZEROBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_BYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_PUBLICKEYBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_SECRETKEYBYTES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_SEEDBYTES</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box">module tweetnacl.lowlevel.crypto_box</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box.crypto_box">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box
+            <span class="apidocSignatureSpan">(c, m, d, n, y, x)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box_beforenm">module tweetnacl.lowlevel.crypto_box_beforenm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm.crypto_box_beforenm">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_beforenm
+            <span class="apidocSignatureSpan">(k, y, x)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box_keypair">module tweetnacl.lowlevel.crypto_box_keypair</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_keypair.crypto_box_keypair">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_keypair
+            <span class="apidocSignatureSpan">(y, x)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box_open">module tweetnacl.lowlevel.crypto_box_open</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_box_open.crypto_box_open">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_open
+            <span class="apidocSignatureSpan">(m, c, d, n, y, x)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_core_hsalsa20">module tweetnacl.lowlevel.crypto_core_hsalsa20</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20.crypto_core_hsalsa20">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_core_hsalsa20
+            <span class="apidocSignatureSpan">(out, inp, k, c)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_hash">module tweetnacl.lowlevel.crypto_hash</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_hash.crypto_hash">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_hash
+            <span class="apidocSignatureSpan">(out, m, n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_onetimeauth">module tweetnacl.lowlevel.crypto_onetimeauth</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth.crypto_onetimeauth">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth
+            <span class="apidocSignatureSpan">(out, outpos, m, mpos, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_onetimeauth_verify">module tweetnacl.lowlevel.crypto_onetimeauth_verify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify.crypto_onetimeauth_verify">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth_verify
+            <span class="apidocSignatureSpan">(h, hpos, m, mpos, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_scalarmult">module tweetnacl.lowlevel.crypto_scalarmult</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult.crypto_scalarmult">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult
+            <span class="apidocSignatureSpan">(q, n, p)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_scalarmult_base">module tweetnacl.lowlevel.crypto_scalarmult_base</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base.crypto_scalarmult_base">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult_base
+            <span class="apidocSignatureSpan">(q, n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_secretbox">module tweetnacl.lowlevel.crypto_secretbox</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox.crypto_secretbox">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox
+            <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_secretbox_open">module tweetnacl.lowlevel.crypto_secretbox_open</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open.crypto_secretbox_open">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_open
+            <span class="apidocSignatureSpan">(m, c, d, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_sign">module tweetnacl.lowlevel.crypto_sign</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign.crypto_sign">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign
+            <span class="apidocSignatureSpan">(sm, m, n, sk)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_sign_keypair">module tweetnacl.lowlevel.crypto_sign_keypair</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair.crypto_sign_keypair">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_keypair
+            <span class="apidocSignatureSpan">(pk, sk, seeded)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_sign_open">module tweetnacl.lowlevel.crypto_sign_open</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_open.crypto_sign_open">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_open
+            <span class="apidocSignatureSpan">(m, sm, n, pk)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream">module tweetnacl.lowlevel.crypto_stream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream.crypto_stream">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream
+            <span class="apidocSignatureSpan">(c, cpos, d, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream_salsa20">module tweetnacl.lowlevel.crypto_stream_salsa20</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20.crypto_stream_salsa20">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20
+            <span class="apidocSignatureSpan">(c, cpos, b, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream_salsa20_xor">module tweetnacl.lowlevel.crypto_stream_salsa20_xor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor.crypto_stream_salsa20_xor">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20_xor
+            <span class="apidocSignatureSpan">(c, cpos, m, mpos, b, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream_xor">module tweetnacl.lowlevel.crypto_stream_xor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_xor.crypto_stream_xor">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_xor
+            <span class="apidocSignatureSpan">(c, cpos, m, mpos, d, n, k)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_verify_16">module tweetnacl.lowlevel.crypto_verify_16</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_16.crypto_verify_16">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_16
+            <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.lowlevel.crypto_verify_32">module tweetnacl.lowlevel.crypto_verify_32</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_32.crypto_verify_32">
+            function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_32
+            <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.nacl">module tweetnacl.nacl</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.box">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>box
+            <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.hash">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>hash
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.randomBytes">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>randomBytes
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.scalarMult">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>scalarMult
+            <span class="apidocSignatureSpan">(n, p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.secretbox">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>secretbox
+            <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.setPRNG">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>setPRNG
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.sign">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>sign
+            <span class="apidocSignatureSpan">(msg, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.nacl.verify">
+            function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>verify
+            <span class="apidocSignatureSpan">(x, y)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tweetnacl.nacl.</span>lowlevel</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">tweetnacl.nacl.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.randomBytes">module tweetnacl.randomBytes</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.randomBytes.randomBytes">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>randomBytes
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.scalarMult">module tweetnacl.scalarMult</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.scalarMult.scalarMult">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>scalarMult
+            <span class="apidocSignatureSpan">(n, p)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.scalarMult.base">
+            function <span class="apidocSignatureSpan">tweetnacl.scalarMult.</span>base
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.scalarMult.</span>groupElementLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.scalarMult.</span>scalarLength</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.scalarMult.base">module tweetnacl.scalarMult.base</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.scalarMult.base.base">
+            function <span class="apidocSignatureSpan">tweetnacl.scalarMult.</span>base
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.secretbox">module tweetnacl.secretbox</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.secretbox.secretbox">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>secretbox
+            <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.secretbox.open">
+            function <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>open
+            <span class="apidocSignatureSpan">(box, nonce, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>keyLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>nonceLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>overheadLength</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.secretbox.open">module tweetnacl.secretbox.open</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.secretbox.open.open">
+            function <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>open
+            <span class="apidocSignatureSpan">(box, nonce, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.setPRNG">module tweetnacl.setPRNG</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.setPRNG.setPRNG">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>setPRNG
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.sign">module tweetnacl.sign</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.sign">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>sign
+            <span class="apidocSignatureSpan">(msg, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.detached">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.</span>detached
+            <span class="apidocSignatureSpan">(msg, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.keyPair">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.</span>keyPair
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.open">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.</span>open
+            <span class="apidocSignatureSpan">(signedMsg, publicKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.sign.</span>publicKeyLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.sign.</span>secretKeyLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.sign.</span>seedLength</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">tweetnacl.sign.</span>signatureLength</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.sign.detached">module tweetnacl.sign.detached</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.detached.detached">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.</span>detached
+            <span class="apidocSignatureSpan">(msg, secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.detached.verify">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.detached.</span>verify
+            <span class="apidocSignatureSpan">(msg, sig, publicKey)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.sign.keyPair">module tweetnacl.sign.keyPair</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.keyPair.keyPair">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.</span>keyPair
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.keyPair.fromSecretKey">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.keyPair.</span>fromSecretKey
+            <span class="apidocSignatureSpan">(secretKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.keyPair.fromSeed">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.keyPair.</span>fromSeed
+            <span class="apidocSignatureSpan">(seed)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.sign.open">module tweetnacl.sign.open</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.sign.open.open">
+            function <span class="apidocSignatureSpan">tweetnacl.sign.</span>open
+            <span class="apidocSignatureSpan">(signedMsg, publicKey)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.util">module tweetnacl.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.util.decodeBase64">
+            function <span class="apidocSignatureSpan">tweetnacl.util.</span>decodeBase64
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.util.decodeUTF8">
+            function <span class="apidocSignatureSpan">tweetnacl.util.</span>decodeUTF8
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.util.encodeBase64">
+            function <span class="apidocSignatureSpan">tweetnacl.util.</span>encodeBase64
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.util.encodeUTF8">
+            function <span class="apidocSignatureSpan">tweetnacl.util.</span>encodeUTF8
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.util.decodeBase64">module tweetnacl.util.decodeBase64</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.util.decodeBase64.decodeBase64">
+            function <span class="apidocSignatureSpan">tweetnacl.util.</span>decodeBase64
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.tweetnacl.verify">module tweetnacl.verify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.tweetnacl.verify.verify">
+            function <span class="apidocSignatureSpan">tweetnacl.</span>verify
+            <span class="apidocSignatureSpan">(x, y)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl" id="apidoc.module.tweetnacl">module tweetnacl</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box" id="apidoc.element.tweetnacl.box">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>box
+        <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">box = function (msg, nonce, publicKey, secretKey) {
+  var k = nacl.box.before(publicKey, secretKey);
+  return nacl.secretbox(msg, nonce, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+#### nacl.box.keyPair.fromSecretKey(secretKey)
+
+Returns a key pair for box with public key corresponding to the given secret
+key.
+
+#### nacl.<span class="apidocCodeKeywordSpan">box</span>(message, nonce, theirPublicKey, mySecretKey)
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.before" id="apidoc.element.tweetnacl.box.before">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>box.before
+        <span class="apidocSignatureSpan">(publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">box.before = function (publicKey, secretKey) {
+  checkArrayTypes(publicKey, secretKey);
+  checkBoxLengths(publicKey, secretKey);
+  var k = new Uint8Array(crypto_box_BEFORENMBYTES);
+  crypto_box_beforenm(k, publicKey, secretKey);
+  return k;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.box.open(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.<span class="apidocCodeKeywordSpan">box.before</span>(theirPublicKey, mySecretKey)
+
+Returns a precomputed shared key which can be used in `nacl.box.after` and
+`nacl.box.open.after`.
+
+#### nacl.box.after(message, nonce, sharedKey)
+
+Same as `nacl.box`, but uses a shared key precomputed with `nacl.box.before`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.keyPair" id="apidoc.element.tweetnacl.box.keyPair">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>box.keyPair
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">box.keyPair = function () {
+  var pk = new Uint8Array(crypto_box_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_box_SECRETKEYBYTES);
+  crypto_box_keypair(pk, sk);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+subarrays of their buffers.
+
+
+### Public-key authenticated encryption (box)
+
+Implements *curve25519-xsalsa20-poly1305*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">box.keyPair</span>()
+
+Generates a new random key pair for box and returns it as an object with
+`publicKey` and `secretKey` members:
+
+{
+   publicKey: ...,  // Uint8Array with 32-byte public key
+   secretKey: ...   // Uint8Array with 32-byte secret key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.open" id="apidoc.element.tweetnacl.box.open">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>box.open
+        <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">box.open = function (msg, nonce, publicKey, secretKey) {
+  var k = nacl.box.before(publicKey, secretKey);
+  return nacl.secretbox.open(msg, nonce, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.<span class="apidocCodeKeywordSpan">box.open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.hash" id="apidoc.element.tweetnacl.hash">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>hash
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hash = function (msg) {
+  checkArrayTypes(msg);
+  var h = new Uint8Array(crypto_hash_BYTES);
+  crypto_hash(h, msg, msg.length);
+  return h;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of signature in bytes.
+
+
+### Hashing
+
+Implements *SHA-512*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">hash</span>(message)
+
+Returns SHA-512 hash of the message.
+
+#### nacl.hash.hashLength = 64
+
+Length of hash in bytes.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box" id="apidoc.element.tweetnacl.lowlevel.crypto_box">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box
+        <span class="apidocSignatureSpan">(c, m, d, n, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box(c, m, d, n, y, x) {
+  var k = new Uint8Array(32);
+  crypto_box_beforenm(k, y, x);
+  return crypto_box_afternm(c, m, d, n, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm" id="apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box_beforenm
+        <span class="apidocSignatureSpan">(k, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_beforenm(k, y, x) {
+  var s = new Uint8Array(32);
+  crypto_scalarmult(s, x, y);
+  return crypto_core_hsalsa20(k, _0, s, sigma);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_keypair" id="apidoc.element.tweetnacl.lowlevel.crypto_box_keypair">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box_keypair
+        <span class="apidocSignatureSpan">(y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_keypair(y, x) {
+  randombytes(x, 32);
+  return crypto_scalarmult_base(y, x);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_open" id="apidoc.element.tweetnacl.lowlevel.crypto_box_open">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_box_open
+        <span class="apidocSignatureSpan">(m, c, d, n, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_open(m, c, d, n, y, x) {
+  var k = new Uint8Array(32);
+  crypto_box_beforenm(k, y, x);
+  return crypto_box_open_afternm(m, c, d, n, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20" id="apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_core_hsalsa20
+        <span class="apidocSignatureSpan">(out, inp, k, c)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_core_hsalsa20(out, inp, k, c) {
+  core_hsalsa20(out,inp,k,c);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_hash" id="apidoc.element.tweetnacl.lowlevel.crypto_hash">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_hash
+        <span class="apidocSignatureSpan">(out, m, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_hash(out, m, n) {
+  var hh = new Int32Array(8),
+      hl = new Int32Array(8),
+      x = new Uint8Array(256),
+      i, b = n;
+
+  hh[0] = 0x6a09e667;
+  hh[1] = 0xbb67ae85;
+  hh[2] = 0x3c6ef372;
+  hh[3] = 0xa54ff53a;
+  hh[4] = 0x510e527f;
+  hh[5] = 0x9b05688c;
+  hh[6] = 0x1f83d9ab;
+  hh[7] = 0x5be0cd19;
+
+  hl[0] = 0xf3bcc908;
+  hl[1] = 0x84caa73b;
+  hl[2] = 0xfe94f82b;
+  hl[3] = 0x5f1d36f1;
+  hl[4] = 0xade682d1;
+  hl[5] = 0x2b3e6c1f;
+  hl[6] = 0xfb41bd6b;
+  hl[7] = 0x137e2179;
+
+  crypto_hashblocks_hl(hh, hl, m, n);
+  n %= 128;
+
+  for (i = 0; i &#x3c; n; i++) x[i] = m[b-n+i];
+  x[n] = 128;
+
+  n = 256-128*(n&#x3c;112?1:0);
+  x[n-9] = 0;
+  ts64(x, n-8,  (b / 0x20000000) | 0, b &#x3c;&#x3c; 3);
+  crypto_hashblocks_hl(hh, hl, x, n);
+
+  for (i = 0; i &#x3c; 8; i++) ts64(out, 8*i, hh[i], hl[i]);
+
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth" id="apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_onetimeauth
+        <span class="apidocSignatureSpan">(out, outpos, m, mpos, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_onetimeauth(out, outpos, m, mpos, n, k) {
+  var s = new poly1305(k);
+  s.update(m, mpos, n);
+  s.finish(out, outpos);
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify" id="apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_onetimeauth_verify
+        <span class="apidocSignatureSpan">(h, hpos, m, mpos, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_onetimeauth_verify(h, hpos, m, mpos, n, k) {
+  var x = new Uint8Array(16);
+  crypto_onetimeauth(x,0,m,mpos,n,k);
+  return crypto_verify_16(h,hpos,x,0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult" id="apidoc.element.tweetnacl.lowlevel.crypto_scalarmult">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_scalarmult
+        <span class="apidocSignatureSpan">(q, n, p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_scalarmult(q, n, p) {
+  var z = new Uint8Array(32);
+  var x = new Float64Array(80), r, i;
+  var a = gf(), b = gf(), c = gf(),
+      d = gf(), e = gf(), f = gf();
+  for (i = 0; i &#x3c; 31; i++) z[i] = n[i];
+  z[31]=(n[31]&#x26;127)|64;
+  z[0]&#x26;=248;
+  unpack25519(x,p);
+  for (i = 0; i &#x3c; 16; i++) {
+    b[i]=x[i];
+    d[i]=a[i]=c[i]=0;
+  }
+  a[0]=d[0]=1;
+  for (i=254; i&#x3e;=0; --i) {
+    r=(z[i&#x3e;&#x3e;&#x3e;3]&#x3e;&#x3e;&#x3e;(i&#x26;7))&#x26;1;
+    sel25519(a,b,r);
+    sel25519(c,d,r);
+    A(e,a,c);
+    Z(a,a,c);
+    A(c,b,d);
+    Z(b,b,d);
+    S(d,e);
+    S(f,a);
+    M(a,c,a);
+    M(c,b,e);
+    A(e,a,c);
+    Z(a,a,c);
+    S(b,a);
+    Z(c,d,f);
+    M(a,c,_121665);
+    A(a,a,d);
+    M(c,c,a);
+    M(a,d,f);
+    M(d,b,x);
+    S(b,e);
+    sel25519(a,b,r);
+    sel25519(c,d,r);
+  }
+  for (i = 0; i &#x3c; 16; i++) {
+    x[i+16]=a[i];
+    x[i+32]=c[i];
+    x[i+48]=b[i];
+    x[i+64]=d[i];
+  }
+  var x32 = x.subarray(32);
+  var x16 = x.subarray(16);
+  inv25519(x32,x32);
+  M(x16,x16,x32);
+  pack25519(q,x16);
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base" id="apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_scalarmult_base
+        <span class="apidocSignatureSpan">(q, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_scalarmult_base(q, n) {
+  return crypto_scalarmult(q, n, _9);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox" id="apidoc.element.tweetnacl.lowlevel.crypto_secretbox">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_secretbox
+        <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox(c, m, d, n, k) {
+  var i;
+  if (d &#x3c; 32) return -1;
+  crypto_stream_xor(c,0,m,0,d,n,k);
+  crypto_onetimeauth(c, 16, c, 32, d - 32, c);
+  for (i = 0; i &#x3c; 16; i++) c[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open" id="apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_secretbox_open
+        <span class="apidocSignatureSpan">(m, c, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox_open(m, c, d, n, k) {
+  var i;
+  var x = new Uint8Array(32);
+  if (d &#x3c; 32) return -1;
+  crypto_stream(x,0,32,n,k);
+  if (crypto_onetimeauth_verify(c, 16,c, 32,d - 32,x) !== 0) return -1;
+  crypto_stream_xor(m,0,c,0,d,n,k);
+  for (i = 0; i &#x3c; 32; i++) m[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign" id="apidoc.element.tweetnacl.lowlevel.crypto_sign">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_sign
+        <span class="apidocSignatureSpan">(sm, m, n, sk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign(sm, m, n, sk) {
+  var d = new Uint8Array(64), h = new Uint8Array(64), r = new Uint8Array(64);
+  var i, j, x = new Float64Array(64);
+  var p = [gf(), gf(), gf(), gf()];
+
+  crypto_hash(d, sk, 32);
+  d[0] &#x26;= 248;
+  d[31] &#x26;= 127;
+  d[31] |= 64;
+
+  var smlen = n + 64;
+  for (i = 0; i &#x3c; n; i++) sm[64 + i] = m[i];
+  for (i = 0; i &#x3c; 32; i++) sm[32 + i] = d[32 + i];
+
+  crypto_hash(r, sm.subarray(32), n+32);
+  reduce(r);
+  scalarbase(p, r);
+  pack(sm, p);
+
+  for (i = 32; i &#x3c; 64; i++) sm[i] = sk[i];
+  crypto_hash(h, sm, n + 64);
+  reduce(h);
+
+  for (i = 0; i &#x3c; 64; i++) x[i] = 0;
+  for (i = 0; i &#x3c; 32; i++) x[i] = r[i];
+  for (i = 0; i &#x3c; 32; i++) {
+    for (j = 0; j &#x3c; 32; j++) {
+      x[i+j] += h[i] * d[j];
+    }
+  }
+
+  modL(sm.subarray(32), x);
+  return smlen;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair" id="apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_sign_keypair
+        <span class="apidocSignatureSpan">(pk, sk, seeded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign_keypair(pk, sk, seeded) {
+  var d = new Uint8Array(64);
+  var p = [gf(), gf(), gf(), gf()];
+  var i;
+
+  if (!seeded) randombytes(sk, 32);
+  crypto_hash(d, sk, 32);
+  d[0] &#x26;= 248;
+  d[31] &#x26;= 127;
+  d[31] |= 64;
+
+  scalarbase(p, d);
+  pack(pk, p);
+
+  for (i = 0; i &#x3c; 32; i++) sk[i+32] = pk[i];
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_open" id="apidoc.element.tweetnacl.lowlevel.crypto_sign_open">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_sign_open
+        <span class="apidocSignatureSpan">(m, sm, n, pk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign_open(m, sm, n, pk) {
+  var i, mlen;
+  var t = new Uint8Array(32), h = new Uint8Array(64);
+  var p = [gf(), gf(), gf(), gf()],
+      q = [gf(), gf(), gf(), gf()];
+
+  mlen = -1;
+  if (n &#x3c; 64) return -1;
+
+  if (unpackneg(q, pk)) return -1;
+
+  for (i = 0; i &#x3c; n; i++) m[i] = sm[i];
+  for (i = 0; i &#x3c; 32; i++) m[i+32] = pk[i];
+  crypto_hash(h, m, n);
+  reduce(h);
+  scalarmult(p, q, h);
+
+  scalarbase(q, sm.subarray(32));
+  add(p, q);
+  pack(t, p);
+
+  n -= 64;
+  if (crypto_verify_32(sm, 0, t, 0)) {
+    for (i = 0; i &#x3c; n; i++) m[i] = 0;
+    return -1;
+  }
+
+  for (i = 0; i &#x3c; n; i++) m[i] = sm[i + 64];
+  mlen = n;
+  return mlen;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream" id="apidoc.element.tweetnacl.lowlevel.crypto_stream">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream
+        <span class="apidocSignatureSpan">(c, cpos, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream(c, cpos, d, n, k) {
+  var s = new Uint8Array(32);
+  crypto_core_hsalsa20(s,n,k,sigma);
+  var sn = new Uint8Array(8);
+  for (var i = 0; i &#x3c; 8; i++) sn[i] = n[i+16];
+  return crypto_stream_salsa20(c,cpos,d,sn,s);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream_salsa20
+        <span class="apidocSignatureSpan">(c, cpos, b, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_salsa20(c, cpos, b, n, k) {
+  var z = new Uint8Array(16), x = new Uint8Array(64);
+  var u, i;
+  for (i = 0; i &#x3c; 16; i++) z[i] = 0;
+  for (i = 0; i &#x3c; 8; i++) z[i] = n[i];
+  while (b &#x3e;= 64) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; 64; i++) c[cpos+i] = x[i];
+    u = 1;
+    for (i = 8; i &#x3c; 16; i++) {
+      u = u + (z[i] &#x26; 0xff) | 0;
+      z[i] = u &#x26; 0xff;
+      u &#x3e;&#x3e;&#x3e;= 8;
+    }
+    b -= 64;
+    cpos += 64;
+  }
+  if (b &#x3e; 0) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; b; i++) c[cpos+i] = x[i];
+  }
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream_salsa20_xor
+        <span class="apidocSignatureSpan">(c, cpos, m, mpos, b, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_salsa20_xor(c, cpos, m, mpos, b, n, k) {
+  var z = new Uint8Array(16), x = new Uint8Array(64);
+  var u, i;
+  for (i = 0; i &#x3c; 16; i++) z[i] = 0;
+  for (i = 0; i &#x3c; 8; i++) z[i] = n[i];
+  while (b &#x3e;= 64) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; 64; i++) c[cpos+i] = m[mpos+i] ^ x[i];
+    u = 1;
+    for (i = 8; i &#x3c; 16; i++) {
+      u = u + (z[i] &#x26; 0xff) | 0;
+      z[i] = u &#x26; 0xff;
+      u &#x3e;&#x3e;&#x3e;= 8;
+    }
+    b -= 64;
+    cpos += 64;
+    mpos += 64;
+  }
+  if (b &#x3e; 0) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; b; i++) c[cpos+i] = m[mpos+i] ^ x[i];
+  }
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_xor" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_xor">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_stream_xor
+        <span class="apidocSignatureSpan">(c, cpos, m, mpos, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_xor(c, cpos, m, mpos, d, n, k) {
+  var s = new Uint8Array(32);
+  crypto_core_hsalsa20(s,n,k,sigma);
+  var sn = new Uint8Array(8);
+  for (var i = 0; i &#x3c; 8; i++) sn[i] = n[i+16];
+  return crypto_stream_salsa20_xor(c,cpos,m,mpos,d,sn,s);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_16" id="apidoc.element.tweetnacl.lowlevel.crypto_verify_16">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_verify_16
+        <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_verify_16(x, xi, y, yi) {
+  return vn(x,xi,y,yi,16);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_32" id="apidoc.element.tweetnacl.lowlevel.crypto_verify_32">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>lowlevel.crypto_verify_32
+        <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_verify_32(x, xi, y, yi) {
+  return vn(x,xi,y,yi,32);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.randomBytes" id="apidoc.element.tweetnacl.randomBytes">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>randomBytes
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randomBytes = function (n) {
+  var b = new Uint8Array(n);
+  randombytes(b, n);
+  return b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.hash.hashLength = 64
+
+Length of hash in bytes.
+
+
+### Random bytes generation
+
+#### nacl.<span class="apidocCodeKeywordSpan">randomBytes</span>(length)
+
+Returns a `Uint8Array` of the given length containing random bytes of
+cryptographic quality.
+
+**Implementation note**
+
+TweetNaCl.js uses the following methods to generate random bytes,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.scalarMult" id="apidoc.element.tweetnacl.scalarMult">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>scalarMult
+        <span class="apidocSignatureSpan">(n, p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scalarMult = function (n, p) {
+  checkArrayTypes(n, p);
+  if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error(&#x27;bad n size&#x27;);
+  if (p.length !== crypto_scalarmult_BYTES) throw new Error(&#x27;bad p size&#x27;);
+  var q = new Uint8Array(crypto_scalarmult_BYTES);
+  crypto_scalarmult(q, n, p);
+  return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of overhead added to secret box compared to original message.
+
+
+### Scalar multiplication
+
+Implements *curve25519*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">scalarMult</span>(n, p)
+
+Multiplies an integer `n` by a group element `p` and returns the resulting
+group element.
+
+#### nacl.scalarMult.base(n)
+
+Multiplies an integer `n` by a standard group element and returns the resulting
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.scalarMult.base" id="apidoc.element.tweetnacl.scalarMult.base">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>scalarMult.base
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scalarMult.base = function (n) {
+  checkArrayTypes(n);
+  if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error(&#x27;bad n size&#x27;);
+  var q = new Uint8Array(crypto_scalarmult_BYTES);
+  crypto_scalarmult_base(q, n);
+  return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Implements *curve25519*.
+
+#### nacl.scalarMult(n, p)
+
+Multiplies an integer `n` by a group element `p` and returns the resulting
+group element.
+
+#### nacl.<span class="apidocCodeKeywordSpan">scalarMult.base</span>(n)
+
+Multiplies an integer `n` by a standard group element and returns the resulting
+group element.
+
+#### nacl.scalarMult.scalarLength = 32
+
+Length of scalar in bytes.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.secretbox" id="apidoc.element.tweetnacl.secretbox">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>secretbox
+        <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">secretbox = function (msg, nonce, key) {
+  checkArrayTypes(msg, nonce, key);
+  checkLengths(key, nonce);
+  var m = new Uint8Array(crypto_secretbox_ZEROBYTES + msg.length);
+  var c = new Uint8Array(m.length);
+  for (var i = 0; i &#x3c; msg.length; i++) m[i+crypto_secretbox_ZEROBYTES] = msg[i];
+  crypto_secretbox(c, m, m.length, nonce, key);
+  return c.subarray(crypto_secretbox_BOXZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of overhead added to box compared to original message.
+
+
+### Secret-key authenticated encryption (secretbox)
+
+Implements *xsalsa20-poly1305*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">secretbox</span>(message, nonce, key)
+
+Encrypt and authenticates message using the key and the nonce. The nonce must
+be unique for each distinct message for this key.
+
+Returns an encrypted and authenticated message, which is
+`nacl.secretbox.overheadLength` longer than the original message.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.secretbox.open" id="apidoc.element.tweetnacl.secretbox.open">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>secretbox.open
+        <span class="apidocSignatureSpan">(box, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">secretbox.open = function (box, nonce, key) {
+  checkArrayTypes(box, nonce, key);
+  checkLengths(key, nonce);
+  var c = new Uint8Array(crypto_secretbox_BOXZEROBYTES + box.length);
+  var m = new Uint8Array(c.length);
+  for (var i = 0; i &#x3c; box.length; i++) c[i+crypto_secretbox_BOXZEROBYTES] = box[i];
+  if (c.length &#x3c; 32) return false;
+  if (crypto_secretbox_open(m, c, c.length, nonce, key) !== 0) return false;
+  return m.subarray(crypto_secretbox_ZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using the key and the nonce. The nonce must
+be unique for each distinct message for this key.
+
+Returns an encrypted and authenticated message, which is
+`nacl.secretbox.overheadLength` longer than the original message.
+
+#### nacl.<span class="apidocCodeKeywordSpan">secretbox.open</span>(box, nonce, key)
+
+Authenticates and decrypts the given secret box using the key and the nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.secretbox.keyLength = 32
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.setPRNG" id="apidoc.element.tweetnacl.setPRNG">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>setPRNG
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setPRNG = function (fn) {
+  randombytes = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Other functions are deterministic and will continue working.
+
+If a platform you are targeting doesn&#x27;t implement secure random number
+generator, but you somehow have a cryptographically-strong source of entropy
+(not `Math.random`!), and you know what you are doing, you can plug it into
+TweetNaCl.js like this:
+
+    nacl.<span class="apidocCodeKeywordSpan">setPRNG</span>(function(x, n) {
+      // ... copy n random bytes into x ...
+    });
+
+Note that `nacl.setPRNG` *completely replaces* internal random byte generator
+with the one provided.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign" id="apidoc.element.tweetnacl.sign">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>sign
+        <span class="apidocSignatureSpan">(msg, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sign = function (msg, secretKey) {
+  checkArrayTypes(msg, secretKey);
+  if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
+    throw new Error(&#x27;bad secret key size&#x27;);
+  var signedMsg = new Uint8Array(crypto_sign_BYTES+msg.length);
+  crypto_sign(signedMsg, msg, msg.length, secretKey);
+  return signedMsg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.sign.keyPair.fromSeed(seed)
+
+Returns a new signing key pair generated deterministically from a 32-byte seed.
+The seed must contain enough entropy to be secure. This method is not
+recommended for general use: instead, use `nacl.sign.keyPair` to generate a new
+key pair from a random seed.
+
+#### nacl.<span class="apidocCodeKeywordSpan">sign</span>(message, secretKey)
+
+Signs the message using the secret key and returns a signed message.
+
+#### nacl.sign.open(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.detached" id="apidoc.element.tweetnacl.sign.detached">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>sign.detached
+        <span class="apidocSignatureSpan">(msg, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sign.detached = function (msg, secretKey) {
+  var signedMsg = nacl.sign(msg, secretKey);
+  var sig = new Uint8Array(crypto_sign_BYTES);
+  for (var i = 0; i &#x3c; sig.length; i++) sig[i] = signedMsg[i];
+  return sig;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### nacl.sign.open(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+
+Returns `null` if verification failed.
+
+#### nacl.<span class="apidocCodeKeywordSpan">sign.detached</span>(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.verify(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.keyPair" id="apidoc.element.tweetnacl.sign.keyPair">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>sign.keyPair
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sign.keyPair = function () {
+  var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_sign_SECRETKEYBYTES);
+  crypto_sign_keypair(pk, sk);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of group element in bytes.
+
+
+### Signatures
+
+Implements [ed25519](http://ed25519.cr.yp.to).
+
+#### nacl.<span class="apidocCodeKeywordSpan">sign.keyPair</span>()
+
+Generates new random key pair for signing and returns it as an object with
+`publicKey` and `secretKey` members:
+
+{
+   publicKey: ...,  // Uint8Array with 32-byte public key
+   secretKey: ...   // Uint8Array with 64-byte secret key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.open" id="apidoc.element.tweetnacl.sign.open">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>sign.open
+        <span class="apidocSignatureSpan">(signedMsg, publicKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sign.open = function (signedMsg, publicKey) {
+  if (arguments.length !== 2)
+    throw new Error(&#x27;nacl.sign.open accepts 2 arguments; did you mean to use nacl.sign.detached.verify?&#x27;);
+  checkArrayTypes(signedMsg, publicKey);
+  if (publicKey.length !== crypto_sign_PUBLICKEYBYTES)
+    throw new Error(&#x27;bad public key size&#x27;);
+  var tmp = new Uint8Array(signedMsg.length);
+  var mlen = crypto_sign_open(tmp, signedMsg, signedMsg.length, publicKey);
+  if (mlen &#x3c; 0) return null;
+  var m = new Uint8Array(mlen);
+  for (var i = 0; i &#x3c; m.length; i++) m[i] = tmp[i];
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+recommended for general use: instead, use `nacl.sign.keyPair` to generate a new
+key pair from a random seed.
+
+#### nacl.sign(message, secretKey)
+
+Signs the message using the secret key and returns a signed message.
+
+#### nacl.<span class="apidocCodeKeywordSpan">sign.open</span>(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+
+Returns `null` if verification failed.
+
+#### nacl.sign.detached(message, secretKey)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.util.decodeBase64" id="apidoc.element.tweetnacl.util.decodeBase64">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>util.decodeBase64
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">util.decodeBase64 = function () {
+  throw new Error(&#x27;nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.verify" id="apidoc.element.tweetnacl.verify">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>verify
+        <span class="apidocSignatureSpan">(x, y)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verify = function (x, y) {
+  checkArrayTypes(x, y);
+  // Zero length arguments are considered not equal.
+  if (x.length === 0 || y.length === 0) return false;
+  if (x.length !== y.length) return false;
+  return (vn(x, 0, y, 0, x.length) === 0) ? true : false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Returns `null` if verification failed.
+
+#### nacl.sign.detached(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.<span class="apidocCodeKeywordSpan">verify</span>(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+
+#### nacl.sign.publicKeyLength = 32
+
+Length of signing public key in bytes.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.box" id="apidoc.module.tweetnacl.box">module tweetnacl.box</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.box" id="apidoc.element.tweetnacl.box.box">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>box
+        <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">box = function (msg, nonce, publicKey, secretKey) {
+  var k = nacl.box.before(publicKey, secretKey);
+  return nacl.secretbox(msg, nonce, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+#### nacl.box.keyPair.fromSecretKey(secretKey)
+
+Returns a key pair for box with public key corresponding to the given secret
+key.
+
+#### nacl.<span class="apidocCodeKeywordSpan">box</span>(message, nonce, theirPublicKey, mySecretKey)
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.after" id="apidoc.element.tweetnacl.box.after">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>after
+        <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">after = function (msg, nonce, key) {
+  checkArrayTypes(msg, nonce, key);
+  checkLengths(key, nonce);
+  var m = new Uint8Array(crypto_secretbox_ZEROBYTES + msg.length);
+  var c = new Uint8Array(m.length);
+  for (var i = 0; i &#x3c; msg.length; i++) m[i+crypto_secretbox_ZEROBYTES] = msg[i];
+  crypto_secretbox(c, m, m.length, nonce, key);
+  return c.subarray(crypto_secretbox_BOXZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+
+Returns a precomputed shared key which can be used in `nacl.box.after` and
+`nacl.box.open.after`.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">after</span>(message, nonce, sharedKey)
+
+Same as `nacl.box`, but uses a shared key precomputed with `nacl.box.before`.
+
+#### nacl.box.open.after(box, nonce, sharedKey)
+
+Same as `nacl.box.open`, but uses a shared key precomputed with `nacl.box.before`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.before" id="apidoc.element.tweetnacl.box.before">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>before
+        <span class="apidocSignatureSpan">(publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">before = function (publicKey, secretKey) {
+  checkArrayTypes(publicKey, secretKey);
+  checkBoxLengths(publicKey, secretKey);
+  var k = new Uint8Array(crypto_box_BEFORENMBYTES);
+  crypto_box_beforenm(k, publicKey, secretKey);
+  return k;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.box.open(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">before</span>(theirPublicKey, mySecretKey)
+
+Returns a precomputed shared key which can be used in `nacl.box.after` and
+`nacl.box.open.after`.
+
+#### nacl.box.after(message, nonce, sharedKey)
+
+Same as `nacl.box`, but uses a shared key precomputed with `nacl.box.before`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.keyPair" id="apidoc.element.tweetnacl.box.keyPair">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>keyPair
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">keyPair = function () {
+  var pk = new Uint8Array(crypto_box_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_box_SECRETKEYBYTES);
+  crypto_box_keypair(pk, sk);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+subarrays of their buffers.
+
+
+### Public-key authenticated encryption (box)
+
+Implements *curve25519-xsalsa20-poly1305*.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">keyPair</span>()
+
+Generates a new random key pair for box and returns it as an object with
+`publicKey` and `secretKey` members:
+
+{
+   publicKey: ...,  // Uint8Array with 32-byte public key
+   secretKey: ...   // Uint8Array with 32-byte secret key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.open" id="apidoc.element.tweetnacl.box.open">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>open
+        <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (msg, nonce, publicKey, secretKey) {
+  var k = nacl.box.before(publicKey, secretKey);
+  return nacl.secretbox.open(msg, nonce, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.box.before" id="apidoc.module.tweetnacl.box.before">module tweetnacl.box.before</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.before.before" id="apidoc.element.tweetnacl.box.before.before">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>before
+        <span class="apidocSignatureSpan">(publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">before = function (publicKey, secretKey) {
+  checkArrayTypes(publicKey, secretKey);
+  checkBoxLengths(publicKey, secretKey);
+  var k = new Uint8Array(crypto_box_BEFORENMBYTES);
+  crypto_box_beforenm(k, publicKey, secretKey);
+  return k;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.box.open(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">before</span>(theirPublicKey, mySecretKey)
+
+Returns a precomputed shared key which can be used in `nacl.box.after` and
+`nacl.box.open.after`.
+
+#### nacl.box.after(message, nonce, sharedKey)
+
+Same as `nacl.box`, but uses a shared key precomputed with `nacl.box.before`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.box.keyPair" id="apidoc.module.tweetnacl.box.keyPair">module tweetnacl.box.keyPair</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.keyPair.keyPair" id="apidoc.element.tweetnacl.box.keyPair.keyPair">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>keyPair
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">keyPair = function () {
+  var pk = new Uint8Array(crypto_box_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_box_SECRETKEYBYTES);
+  crypto_box_keypair(pk, sk);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+subarrays of their buffers.
+
+
+### Public-key authenticated encryption (box)
+
+Implements *curve25519-xsalsa20-poly1305*.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">keyPair</span>()
+
+Generates a new random key pair for box and returns it as an object with
+`publicKey` and `secretKey` members:
+
+{
+   publicKey: ...,  // Uint8Array with 32-byte public key
+   secretKey: ...   // Uint8Array with 32-byte secret key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.keyPair.fromSecretKey" id="apidoc.element.tweetnacl.box.keyPair.fromSecretKey">
+        function <span class="apidocSignatureSpan">tweetnacl.box.keyPair.</span>fromSecretKey
+        <span class="apidocSignatureSpan">(secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromSecretKey = function (secretKey) {
+  checkArrayTypes(secretKey);
+  if (secretKey.length !== crypto_box_SECRETKEYBYTES)
+    throw new Error(&#x27;bad secret key size&#x27;);
+  var pk = new Uint8Array(crypto_box_PUBLICKEYBYTES);
+  crypto_scalarmult_base(pk, secretKey);
+  return {publicKey: pk, secretKey: new Uint8Array(secretKey)};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    {
+       publicKey: ...,  // Uint8Array with 32-byte public key
+       secretKey: ...   // Uint8Array with 32-byte secret key
+    }
+
+
+#### nacl.box.keyPair.<span class="apidocCodeKeywordSpan">fromSecretKey</span>(secretKey)
+
+Returns a key pair for box with public key corresponding to the given secret
+key.
+
+#### nacl.box(message, nonce, theirPublicKey, mySecretKey)
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.box.open" id="apidoc.module.tweetnacl.box.open">module tweetnacl.box.open</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.open.open" id="apidoc.element.tweetnacl.box.open.open">
+        function <span class="apidocSignatureSpan">tweetnacl.box.</span>open
+        <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (msg, nonce, publicKey, secretKey) {
+  var k = nacl.box.before(publicKey, secretKey);
+  return nacl.secretbox.open(msg, nonce, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.box.open.after" id="apidoc.element.tweetnacl.box.open.after">
+        function <span class="apidocSignatureSpan">tweetnacl.box.open.</span>after
+        <span class="apidocSignatureSpan">(box, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">after = function (box, nonce, key) {
+  checkArrayTypes(box, nonce, key);
+  checkLengths(key, nonce);
+  var c = new Uint8Array(crypto_secretbox_BOXZEROBYTES + box.length);
+  var m = new Uint8Array(c.length);
+  for (var i = 0; i &#x3c; box.length; i++) c[i+crypto_secretbox_BOXZEROBYTES] = box[i];
+  if (c.length &#x3c; 32) return false;
+  if (crypto_secretbox_open(m, c, c.length, nonce, key) !== 0) return false;
+  return m.subarray(crypto_secretbox_ZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+
+Returns a precomputed shared key which can be used in `nacl.box.after` and
+`nacl.box.open.after`.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">after</span>(message, nonce, sharedKey)
+
+Same as `nacl.box`, but uses a shared key precomputed with `nacl.box.before`.
+
+#### nacl.box.open.after(box, nonce, sharedKey)
+
+Same as `nacl.box.open`, but uses a shared key precomputed with `nacl.box.before`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.hash" id="apidoc.module.tweetnacl.hash">module tweetnacl.hash</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.hash.hash" id="apidoc.element.tweetnacl.hash.hash">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>hash
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hash = function (msg) {
+  checkArrayTypes(msg);
+  var h = new Uint8Array(crypto_hash_BYTES);
+  crypto_hash(h, msg, msg.length);
+  return h;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of signature in bytes.
+
+
+### Hashing
+
+Implements *SHA-512*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">hash</span>(message)
+
+Returns SHA-512 hash of the message.
+
+#### nacl.hash.hashLength = 64
+
+Length of hash in bytes.
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel" id="apidoc.module.tweetnacl.lowlevel">module tweetnacl.lowlevel</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box" id="apidoc.element.tweetnacl.lowlevel.crypto_box">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box
+        <span class="apidocSignatureSpan">(c, m, d, n, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box(c, m, d, n, y, x) {
+  var k = new Uint8Array(32);
+  crypto_box_beforenm(k, y, x);
+  return crypto_box_afternm(c, m, d, n, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_afternm" id="apidoc.element.tweetnacl.lowlevel.crypto_box_afternm">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_afternm
+        <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox(c, m, d, n, k) {
+  var i;
+  if (d &#x3c; 32) return -1;
+  crypto_stream_xor(c,0,m,0,d,n,k);
+  crypto_onetimeauth(c, 16, c, 32, d - 32, c);
+  for (i = 0; i &#x3c; 16; i++) c[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm" id="apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_beforenm
+        <span class="apidocSignatureSpan">(k, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_beforenm(k, y, x) {
+  var s = new Uint8Array(32);
+  crypto_scalarmult(s, x, y);
+  return crypto_core_hsalsa20(k, _0, s, sigma);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_keypair" id="apidoc.element.tweetnacl.lowlevel.crypto_box_keypair">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_keypair
+        <span class="apidocSignatureSpan">(y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_keypair(y, x) {
+  randombytes(x, 32);
+  return crypto_scalarmult_base(y, x);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_open" id="apidoc.element.tweetnacl.lowlevel.crypto_box_open">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_open
+        <span class="apidocSignatureSpan">(m, c, d, n, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_open(m, c, d, n, y, x) {
+  var k = new Uint8Array(32);
+  crypto_box_beforenm(k, y, x);
+  return crypto_box_open_afternm(m, c, d, n, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20" id="apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_core_hsalsa20
+        <span class="apidocSignatureSpan">(out, inp, k, c)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_core_hsalsa20(out, inp, k, c) {
+  core_hsalsa20(out,inp,k,c);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_hash" id="apidoc.element.tweetnacl.lowlevel.crypto_hash">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_hash
+        <span class="apidocSignatureSpan">(out, m, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_hash(out, m, n) {
+  var hh = new Int32Array(8),
+      hl = new Int32Array(8),
+      x = new Uint8Array(256),
+      i, b = n;
+
+  hh[0] = 0x6a09e667;
+  hh[1] = 0xbb67ae85;
+  hh[2] = 0x3c6ef372;
+  hh[3] = 0xa54ff53a;
+  hh[4] = 0x510e527f;
+  hh[5] = 0x9b05688c;
+  hh[6] = 0x1f83d9ab;
+  hh[7] = 0x5be0cd19;
+
+  hl[0] = 0xf3bcc908;
+  hl[1] = 0x84caa73b;
+  hl[2] = 0xfe94f82b;
+  hl[3] = 0x5f1d36f1;
+  hl[4] = 0xade682d1;
+  hl[5] = 0x2b3e6c1f;
+  hl[6] = 0xfb41bd6b;
+  hl[7] = 0x137e2179;
+
+  crypto_hashblocks_hl(hh, hl, m, n);
+  n %= 128;
+
+  for (i = 0; i &#x3c; n; i++) x[i] = m[b-n+i];
+  x[n] = 128;
+
+  n = 256-128*(n&#x3c;112?1:0);
+  x[n-9] = 0;
+  ts64(x, n-8,  (b / 0x20000000) | 0, b &#x3c;&#x3c; 3);
+  crypto_hashblocks_hl(hh, hl, x, n);
+
+  for (i = 0; i &#x3c; 8; i++) ts64(out, 8*i, hh[i], hl[i]);
+
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth" id="apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth
+        <span class="apidocSignatureSpan">(out, outpos, m, mpos, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_onetimeauth(out, outpos, m, mpos, n, k) {
+  var s = new poly1305(k);
+  s.update(m, mpos, n);
+  s.finish(out, outpos);
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify" id="apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth_verify
+        <span class="apidocSignatureSpan">(h, hpos, m, mpos, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_onetimeauth_verify(h, hpos, m, mpos, n, k) {
+  var x = new Uint8Array(16);
+  crypto_onetimeauth(x,0,m,mpos,n,k);
+  return crypto_verify_16(h,hpos,x,0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult" id="apidoc.element.tweetnacl.lowlevel.crypto_scalarmult">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult
+        <span class="apidocSignatureSpan">(q, n, p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_scalarmult(q, n, p) {
+  var z = new Uint8Array(32);
+  var x = new Float64Array(80), r, i;
+  var a = gf(), b = gf(), c = gf(),
+      d = gf(), e = gf(), f = gf();
+  for (i = 0; i &#x3c; 31; i++) z[i] = n[i];
+  z[31]=(n[31]&#x26;127)|64;
+  z[0]&#x26;=248;
+  unpack25519(x,p);
+  for (i = 0; i &#x3c; 16; i++) {
+    b[i]=x[i];
+    d[i]=a[i]=c[i]=0;
+  }
+  a[0]=d[0]=1;
+  for (i=254; i&#x3e;=0; --i) {
+    r=(z[i&#x3e;&#x3e;&#x3e;3]&#x3e;&#x3e;&#x3e;(i&#x26;7))&#x26;1;
+    sel25519(a,b,r);
+    sel25519(c,d,r);
+    A(e,a,c);
+    Z(a,a,c);
+    A(c,b,d);
+    Z(b,b,d);
+    S(d,e);
+    S(f,a);
+    M(a,c,a);
+    M(c,b,e);
+    A(e,a,c);
+    Z(a,a,c);
+    S(b,a);
+    Z(c,d,f);
+    M(a,c,_121665);
+    A(a,a,d);
+    M(c,c,a);
+    M(a,d,f);
+    M(d,b,x);
+    S(b,e);
+    sel25519(a,b,r);
+    sel25519(c,d,r);
+  }
+  for (i = 0; i &#x3c; 16; i++) {
+    x[i+16]=a[i];
+    x[i+32]=c[i];
+    x[i+48]=b[i];
+    x[i+64]=d[i];
+  }
+  var x32 = x.subarray(32);
+  var x16 = x.subarray(16);
+  inv25519(x32,x32);
+  M(x16,x16,x32);
+  pack25519(q,x16);
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base" id="apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult_base
+        <span class="apidocSignatureSpan">(q, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_scalarmult_base(q, n) {
+  return crypto_scalarmult(q, n, _9);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox" id="apidoc.element.tweetnacl.lowlevel.crypto_secretbox">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox
+        <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox(c, m, d, n, k) {
+  var i;
+  if (d &#x3c; 32) return -1;
+  crypto_stream_xor(c,0,m,0,d,n,k);
+  crypto_onetimeauth(c, 16, c, 32, d - 32, c);
+  for (i = 0; i &#x3c; 16; i++) c[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open" id="apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_open
+        <span class="apidocSignatureSpan">(m, c, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox_open(m, c, d, n, k) {
+  var i;
+  var x = new Uint8Array(32);
+  if (d &#x3c; 32) return -1;
+  crypto_stream(x,0,32,n,k);
+  if (crypto_onetimeauth_verify(c, 16,c, 32,d - 32,x) !== 0) return -1;
+  crypto_stream_xor(m,0,c,0,d,n,k);
+  for (i = 0; i &#x3c; 32; i++) m[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign" id="apidoc.element.tweetnacl.lowlevel.crypto_sign">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign
+        <span class="apidocSignatureSpan">(sm, m, n, sk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign(sm, m, n, sk) {
+  var d = new Uint8Array(64), h = new Uint8Array(64), r = new Uint8Array(64);
+  var i, j, x = new Float64Array(64);
+  var p = [gf(), gf(), gf(), gf()];
+
+  crypto_hash(d, sk, 32);
+  d[0] &#x26;= 248;
+  d[31] &#x26;= 127;
+  d[31] |= 64;
+
+  var smlen = n + 64;
+  for (i = 0; i &#x3c; n; i++) sm[64 + i] = m[i];
+  for (i = 0; i &#x3c; 32; i++) sm[32 + i] = d[32 + i];
+
+  crypto_hash(r, sm.subarray(32), n+32);
+  reduce(r);
+  scalarbase(p, r);
+  pack(sm, p);
+
+  for (i = 32; i &#x3c; 64; i++) sm[i] = sk[i];
+  crypto_hash(h, sm, n + 64);
+  reduce(h);
+
+  for (i = 0; i &#x3c; 64; i++) x[i] = 0;
+  for (i = 0; i &#x3c; 32; i++) x[i] = r[i];
+  for (i = 0; i &#x3c; 32; i++) {
+    for (j = 0; j &#x3c; 32; j++) {
+      x[i+j] += h[i] * d[j];
+    }
+  }
+
+  modL(sm.subarray(32), x);
+  return smlen;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair" id="apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_keypair
+        <span class="apidocSignatureSpan">(pk, sk, seeded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign_keypair(pk, sk, seeded) {
+  var d = new Uint8Array(64);
+  var p = [gf(), gf(), gf(), gf()];
+  var i;
+
+  if (!seeded) randombytes(sk, 32);
+  crypto_hash(d, sk, 32);
+  d[0] &#x26;= 248;
+  d[31] &#x26;= 127;
+  d[31] |= 64;
+
+  scalarbase(p, d);
+  pack(pk, p);
+
+  for (i = 0; i &#x3c; 32; i++) sk[i+32] = pk[i];
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_open" id="apidoc.element.tweetnacl.lowlevel.crypto_sign_open">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_open
+        <span class="apidocSignatureSpan">(m, sm, n, pk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign_open(m, sm, n, pk) {
+  var i, mlen;
+  var t = new Uint8Array(32), h = new Uint8Array(64);
+  var p = [gf(), gf(), gf(), gf()],
+      q = [gf(), gf(), gf(), gf()];
+
+  mlen = -1;
+  if (n &#x3c; 64) return -1;
+
+  if (unpackneg(q, pk)) return -1;
+
+  for (i = 0; i &#x3c; n; i++) m[i] = sm[i];
+  for (i = 0; i &#x3c; 32; i++) m[i+32] = pk[i];
+  crypto_hash(h, m, n);
+  reduce(h);
+  scalarmult(p, q, h);
+
+  scalarbase(q, sm.subarray(32));
+  add(p, q);
+  pack(t, p);
+
+  n -= 64;
+  if (crypto_verify_32(sm, 0, t, 0)) {
+    for (i = 0; i &#x3c; n; i++) m[i] = 0;
+    return -1;
+  }
+
+  for (i = 0; i &#x3c; n; i++) m[i] = sm[i + 64];
+  mlen = n;
+  return mlen;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream" id="apidoc.element.tweetnacl.lowlevel.crypto_stream">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream
+        <span class="apidocSignatureSpan">(c, cpos, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream(c, cpos, d, n, k) {
+  var s = new Uint8Array(32);
+  crypto_core_hsalsa20(s,n,k,sigma);
+  var sn = new Uint8Array(8);
+  for (var i = 0; i &#x3c; 8; i++) sn[i] = n[i+16];
+  return crypto_stream_salsa20(c,cpos,d,sn,s);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20
+        <span class="apidocSignatureSpan">(c, cpos, b, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_salsa20(c, cpos, b, n, k) {
+  var z = new Uint8Array(16), x = new Uint8Array(64);
+  var u, i;
+  for (i = 0; i &#x3c; 16; i++) z[i] = 0;
+  for (i = 0; i &#x3c; 8; i++) z[i] = n[i];
+  while (b &#x3e;= 64) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; 64; i++) c[cpos+i] = x[i];
+    u = 1;
+    for (i = 8; i &#x3c; 16; i++) {
+      u = u + (z[i] &#x26; 0xff) | 0;
+      z[i] = u &#x26; 0xff;
+      u &#x3e;&#x3e;&#x3e;= 8;
+    }
+    b -= 64;
+    cpos += 64;
+  }
+  if (b &#x3e; 0) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; b; i++) c[cpos+i] = x[i];
+  }
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20_xor
+        <span class="apidocSignatureSpan">(c, cpos, m, mpos, b, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_salsa20_xor(c, cpos, m, mpos, b, n, k) {
+  var z = new Uint8Array(16), x = new Uint8Array(64);
+  var u, i;
+  for (i = 0; i &#x3c; 16; i++) z[i] = 0;
+  for (i = 0; i &#x3c; 8; i++) z[i] = n[i];
+  while (b &#x3e;= 64) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; 64; i++) c[cpos+i] = m[mpos+i] ^ x[i];
+    u = 1;
+    for (i = 8; i &#x3c; 16; i++) {
+      u = u + (z[i] &#x26; 0xff) | 0;
+      z[i] = u &#x26; 0xff;
+      u &#x3e;&#x3e;&#x3e;= 8;
+    }
+    b -= 64;
+    cpos += 64;
+    mpos += 64;
+  }
+  if (b &#x3e; 0) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; b; i++) c[cpos+i] = m[mpos+i] ^ x[i];
+  }
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_xor" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_xor">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_xor
+        <span class="apidocSignatureSpan">(c, cpos, m, mpos, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_xor(c, cpos, m, mpos, d, n, k) {
+  var s = new Uint8Array(32);
+  crypto_core_hsalsa20(s,n,k,sigma);
+  var sn = new Uint8Array(8);
+  for (var i = 0; i &#x3c; 8; i++) sn[i] = n[i+16];
+  return crypto_stream_salsa20_xor(c,cpos,m,mpos,d,sn,s);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_16" id="apidoc.element.tweetnacl.lowlevel.crypto_verify_16">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_16
+        <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_verify_16(x, xi, y, yi) {
+  return vn(x,xi,y,yi,16);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_32" id="apidoc.element.tweetnacl.lowlevel.crypto_verify_32">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_32
+        <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_verify_32(x, xi, y, yi) {
+  return vn(x,xi,y,yi,32);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box" id="apidoc.module.tweetnacl.lowlevel.crypto_box">module tweetnacl.lowlevel.crypto_box</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box.crypto_box" id="apidoc.element.tweetnacl.lowlevel.crypto_box.crypto_box">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box
+        <span class="apidocSignatureSpan">(c, m, d, n, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box(c, m, d, n, y, x) {
+  var k = new Uint8Array(32);
+  crypto_box_beforenm(k, y, x);
+  return crypto_box_afternm(c, m, d, n, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box_beforenm" id="apidoc.module.tweetnacl.lowlevel.crypto_box_beforenm">module tweetnacl.lowlevel.crypto_box_beforenm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm.crypto_box_beforenm" id="apidoc.element.tweetnacl.lowlevel.crypto_box_beforenm.crypto_box_beforenm">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_beforenm
+        <span class="apidocSignatureSpan">(k, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_beforenm(k, y, x) {
+  var s = new Uint8Array(32);
+  crypto_scalarmult(s, x, y);
+  return crypto_core_hsalsa20(k, _0, s, sigma);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box_keypair" id="apidoc.module.tweetnacl.lowlevel.crypto_box_keypair">module tweetnacl.lowlevel.crypto_box_keypair</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_keypair.crypto_box_keypair" id="apidoc.element.tweetnacl.lowlevel.crypto_box_keypair.crypto_box_keypair">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_keypair
+        <span class="apidocSignatureSpan">(y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_keypair(y, x) {
+  randombytes(x, 32);
+  return crypto_scalarmult_base(y, x);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_box_open" id="apidoc.module.tweetnacl.lowlevel.crypto_box_open">module tweetnacl.lowlevel.crypto_box_open</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_box_open.crypto_box_open" id="apidoc.element.tweetnacl.lowlevel.crypto_box_open.crypto_box_open">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_box_open
+        <span class="apidocSignatureSpan">(m, c, d, n, y, x)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_box_open(m, c, d, n, y, x) {
+  var k = new Uint8Array(32);
+  crypto_box_beforenm(k, y, x);
+  return crypto_box_open_afternm(m, c, d, n, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_core_hsalsa20" id="apidoc.module.tweetnacl.lowlevel.crypto_core_hsalsa20">module tweetnacl.lowlevel.crypto_core_hsalsa20</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20.crypto_core_hsalsa20" id="apidoc.element.tweetnacl.lowlevel.crypto_core_hsalsa20.crypto_core_hsalsa20">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_core_hsalsa20
+        <span class="apidocSignatureSpan">(out, inp, k, c)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_core_hsalsa20(out, inp, k, c) {
+  core_hsalsa20(out,inp,k,c);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_hash" id="apidoc.module.tweetnacl.lowlevel.crypto_hash">module tweetnacl.lowlevel.crypto_hash</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_hash.crypto_hash" id="apidoc.element.tweetnacl.lowlevel.crypto_hash.crypto_hash">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_hash
+        <span class="apidocSignatureSpan">(out, m, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_hash(out, m, n) {
+  var hh = new Int32Array(8),
+      hl = new Int32Array(8),
+      x = new Uint8Array(256),
+      i, b = n;
+
+  hh[0] = 0x6a09e667;
+  hh[1] = 0xbb67ae85;
+  hh[2] = 0x3c6ef372;
+  hh[3] = 0xa54ff53a;
+  hh[4] = 0x510e527f;
+  hh[5] = 0x9b05688c;
+  hh[6] = 0x1f83d9ab;
+  hh[7] = 0x5be0cd19;
+
+  hl[0] = 0xf3bcc908;
+  hl[1] = 0x84caa73b;
+  hl[2] = 0xfe94f82b;
+  hl[3] = 0x5f1d36f1;
+  hl[4] = 0xade682d1;
+  hl[5] = 0x2b3e6c1f;
+  hl[6] = 0xfb41bd6b;
+  hl[7] = 0x137e2179;
+
+  crypto_hashblocks_hl(hh, hl, m, n);
+  n %= 128;
+
+  for (i = 0; i &#x3c; n; i++) x[i] = m[b-n+i];
+  x[n] = 128;
+
+  n = 256-128*(n&#x3c;112?1:0);
+  x[n-9] = 0;
+  ts64(x, n-8,  (b / 0x20000000) | 0, b &#x3c;&#x3c; 3);
+  crypto_hashblocks_hl(hh, hl, x, n);
+
+  for (i = 0; i &#x3c; 8; i++) ts64(out, 8*i, hh[i], hl[i]);
+
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_onetimeauth" id="apidoc.module.tweetnacl.lowlevel.crypto_onetimeauth">module tweetnacl.lowlevel.crypto_onetimeauth</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth.crypto_onetimeauth" id="apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth.crypto_onetimeauth">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth
+        <span class="apidocSignatureSpan">(out, outpos, m, mpos, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_onetimeauth(out, outpos, m, mpos, n, k) {
+  var s = new poly1305(k);
+  s.update(m, mpos, n);
+  s.finish(out, outpos);
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_onetimeauth_verify" id="apidoc.module.tweetnacl.lowlevel.crypto_onetimeauth_verify">module tweetnacl.lowlevel.crypto_onetimeauth_verify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify.crypto_onetimeauth_verify" id="apidoc.element.tweetnacl.lowlevel.crypto_onetimeauth_verify.crypto_onetimeauth_verify">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_onetimeauth_verify
+        <span class="apidocSignatureSpan">(h, hpos, m, mpos, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_onetimeauth_verify(h, hpos, m, mpos, n, k) {
+  var x = new Uint8Array(16);
+  crypto_onetimeauth(x,0,m,mpos,n,k);
+  return crypto_verify_16(h,hpos,x,0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_scalarmult" id="apidoc.module.tweetnacl.lowlevel.crypto_scalarmult">module tweetnacl.lowlevel.crypto_scalarmult</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult.crypto_scalarmult" id="apidoc.element.tweetnacl.lowlevel.crypto_scalarmult.crypto_scalarmult">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult
+        <span class="apidocSignatureSpan">(q, n, p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_scalarmult(q, n, p) {
+  var z = new Uint8Array(32);
+  var x = new Float64Array(80), r, i;
+  var a = gf(), b = gf(), c = gf(),
+      d = gf(), e = gf(), f = gf();
+  for (i = 0; i &#x3c; 31; i++) z[i] = n[i];
+  z[31]=(n[31]&#x26;127)|64;
+  z[0]&#x26;=248;
+  unpack25519(x,p);
+  for (i = 0; i &#x3c; 16; i++) {
+    b[i]=x[i];
+    d[i]=a[i]=c[i]=0;
+  }
+  a[0]=d[0]=1;
+  for (i=254; i&#x3e;=0; --i) {
+    r=(z[i&#x3e;&#x3e;&#x3e;3]&#x3e;&#x3e;&#x3e;(i&#x26;7))&#x26;1;
+    sel25519(a,b,r);
+    sel25519(c,d,r);
+    A(e,a,c);
+    Z(a,a,c);
+    A(c,b,d);
+    Z(b,b,d);
+    S(d,e);
+    S(f,a);
+    M(a,c,a);
+    M(c,b,e);
+    A(e,a,c);
+    Z(a,a,c);
+    S(b,a);
+    Z(c,d,f);
+    M(a,c,_121665);
+    A(a,a,d);
+    M(c,c,a);
+    M(a,d,f);
+    M(d,b,x);
+    S(b,e);
+    sel25519(a,b,r);
+    sel25519(c,d,r);
+  }
+  for (i = 0; i &#x3c; 16; i++) {
+    x[i+16]=a[i];
+    x[i+32]=c[i];
+    x[i+48]=b[i];
+    x[i+64]=d[i];
+  }
+  var x32 = x.subarray(32);
+  var x16 = x.subarray(16);
+  inv25519(x32,x32);
+  M(x16,x16,x32);
+  pack25519(q,x16);
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_scalarmult_base" id="apidoc.module.tweetnacl.lowlevel.crypto_scalarmult_base">module tweetnacl.lowlevel.crypto_scalarmult_base</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base.crypto_scalarmult_base" id="apidoc.element.tweetnacl.lowlevel.crypto_scalarmult_base.crypto_scalarmult_base">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_scalarmult_base
+        <span class="apidocSignatureSpan">(q, n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_scalarmult_base(q, n) {
+  return crypto_scalarmult(q, n, _9);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_secretbox" id="apidoc.module.tweetnacl.lowlevel.crypto_secretbox">module tweetnacl.lowlevel.crypto_secretbox</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox.crypto_secretbox" id="apidoc.element.tweetnacl.lowlevel.crypto_secretbox.crypto_secretbox">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox
+        <span class="apidocSignatureSpan">(c, m, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox(c, m, d, n, k) {
+  var i;
+  if (d &#x3c; 32) return -1;
+  crypto_stream_xor(c,0,m,0,d,n,k);
+  crypto_onetimeauth(c, 16, c, 32, d - 32, c);
+  for (i = 0; i &#x3c; 16; i++) c[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_secretbox_open" id="apidoc.module.tweetnacl.lowlevel.crypto_secretbox_open">module tweetnacl.lowlevel.crypto_secretbox_open</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open.crypto_secretbox_open" id="apidoc.element.tweetnacl.lowlevel.crypto_secretbox_open.crypto_secretbox_open">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_secretbox_open
+        <span class="apidocSignatureSpan">(m, c, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_secretbox_open(m, c, d, n, k) {
+  var i;
+  var x = new Uint8Array(32);
+  if (d &#x3c; 32) return -1;
+  crypto_stream(x,0,32,n,k);
+  if (crypto_onetimeauth_verify(c, 16,c, 32,d - 32,x) !== 0) return -1;
+  crypto_stream_xor(m,0,c,0,d,n,k);
+  for (i = 0; i &#x3c; 32; i++) m[i] = 0;
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_sign" id="apidoc.module.tweetnacl.lowlevel.crypto_sign">module tweetnacl.lowlevel.crypto_sign</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign.crypto_sign" id="apidoc.element.tweetnacl.lowlevel.crypto_sign.crypto_sign">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign
+        <span class="apidocSignatureSpan">(sm, m, n, sk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign(sm, m, n, sk) {
+  var d = new Uint8Array(64), h = new Uint8Array(64), r = new Uint8Array(64);
+  var i, j, x = new Float64Array(64);
+  var p = [gf(), gf(), gf(), gf()];
+
+  crypto_hash(d, sk, 32);
+  d[0] &#x26;= 248;
+  d[31] &#x26;= 127;
+  d[31] |= 64;
+
+  var smlen = n + 64;
+  for (i = 0; i &#x3c; n; i++) sm[64 + i] = m[i];
+  for (i = 0; i &#x3c; 32; i++) sm[32 + i] = d[32 + i];
+
+  crypto_hash(r, sm.subarray(32), n+32);
+  reduce(r);
+  scalarbase(p, r);
+  pack(sm, p);
+
+  for (i = 32; i &#x3c; 64; i++) sm[i] = sk[i];
+  crypto_hash(h, sm, n + 64);
+  reduce(h);
+
+  for (i = 0; i &#x3c; 64; i++) x[i] = 0;
+  for (i = 0; i &#x3c; 32; i++) x[i] = r[i];
+  for (i = 0; i &#x3c; 32; i++) {
+    for (j = 0; j &#x3c; 32; j++) {
+      x[i+j] += h[i] * d[j];
+    }
+  }
+
+  modL(sm.subarray(32), x);
+  return smlen;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_sign_keypair" id="apidoc.module.tweetnacl.lowlevel.crypto_sign_keypair">module tweetnacl.lowlevel.crypto_sign_keypair</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair.crypto_sign_keypair" id="apidoc.element.tweetnacl.lowlevel.crypto_sign_keypair.crypto_sign_keypair">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_keypair
+        <span class="apidocSignatureSpan">(pk, sk, seeded)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign_keypair(pk, sk, seeded) {
+  var d = new Uint8Array(64);
+  var p = [gf(), gf(), gf(), gf()];
+  var i;
+
+  if (!seeded) randombytes(sk, 32);
+  crypto_hash(d, sk, 32);
+  d[0] &#x26;= 248;
+  d[31] &#x26;= 127;
+  d[31] |= 64;
+
+  scalarbase(p, d);
+  pack(pk, p);
+
+  for (i = 0; i &#x3c; 32; i++) sk[i+32] = pk[i];
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_sign_open" id="apidoc.module.tweetnacl.lowlevel.crypto_sign_open">module tweetnacl.lowlevel.crypto_sign_open</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_sign_open.crypto_sign_open" id="apidoc.element.tweetnacl.lowlevel.crypto_sign_open.crypto_sign_open">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_sign_open
+        <span class="apidocSignatureSpan">(m, sm, n, pk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_sign_open(m, sm, n, pk) {
+  var i, mlen;
+  var t = new Uint8Array(32), h = new Uint8Array(64);
+  var p = [gf(), gf(), gf(), gf()],
+      q = [gf(), gf(), gf(), gf()];
+
+  mlen = -1;
+  if (n &#x3c; 64) return -1;
+
+  if (unpackneg(q, pk)) return -1;
+
+  for (i = 0; i &#x3c; n; i++) m[i] = sm[i];
+  for (i = 0; i &#x3c; 32; i++) m[i+32] = pk[i];
+  crypto_hash(h, m, n);
+  reduce(h);
+  scalarmult(p, q, h);
+
+  scalarbase(q, sm.subarray(32));
+  add(p, q);
+  pack(t, p);
+
+  n -= 64;
+  if (crypto_verify_32(sm, 0, t, 0)) {
+    for (i = 0; i &#x3c; n; i++) m[i] = 0;
+    return -1;
+  }
+
+  for (i = 0; i &#x3c; n; i++) m[i] = sm[i + 64];
+  mlen = n;
+  return mlen;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream" id="apidoc.module.tweetnacl.lowlevel.crypto_stream">module tweetnacl.lowlevel.crypto_stream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream.crypto_stream" id="apidoc.element.tweetnacl.lowlevel.crypto_stream.crypto_stream">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream
+        <span class="apidocSignatureSpan">(c, cpos, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream(c, cpos, d, n, k) {
+  var s = new Uint8Array(32);
+  crypto_core_hsalsa20(s,n,k,sigma);
+  var sn = new Uint8Array(8);
+  for (var i = 0; i &#x3c; 8; i++) sn[i] = n[i+16];
+  return crypto_stream_salsa20(c,cpos,d,sn,s);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream_salsa20" id="apidoc.module.tweetnacl.lowlevel.crypto_stream_salsa20">module tweetnacl.lowlevel.crypto_stream_salsa20</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20.crypto_stream_salsa20" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20.crypto_stream_salsa20">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20
+        <span class="apidocSignatureSpan">(c, cpos, b, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_salsa20(c, cpos, b, n, k) {
+  var z = new Uint8Array(16), x = new Uint8Array(64);
+  var u, i;
+  for (i = 0; i &#x3c; 16; i++) z[i] = 0;
+  for (i = 0; i &#x3c; 8; i++) z[i] = n[i];
+  while (b &#x3e;= 64) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; 64; i++) c[cpos+i] = x[i];
+    u = 1;
+    for (i = 8; i &#x3c; 16; i++) {
+      u = u + (z[i] &#x26; 0xff) | 0;
+      z[i] = u &#x26; 0xff;
+      u &#x3e;&#x3e;&#x3e;= 8;
+    }
+    b -= 64;
+    cpos += 64;
+  }
+  if (b &#x3e; 0) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; b; i++) c[cpos+i] = x[i];
+  }
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream_salsa20_xor" id="apidoc.module.tweetnacl.lowlevel.crypto_stream_salsa20_xor">module tweetnacl.lowlevel.crypto_stream_salsa20_xor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor.crypto_stream_salsa20_xor" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_salsa20_xor.crypto_stream_salsa20_xor">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_salsa20_xor
+        <span class="apidocSignatureSpan">(c, cpos, m, mpos, b, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_salsa20_xor(c, cpos, m, mpos, b, n, k) {
+  var z = new Uint8Array(16), x = new Uint8Array(64);
+  var u, i;
+  for (i = 0; i &#x3c; 16; i++) z[i] = 0;
+  for (i = 0; i &#x3c; 8; i++) z[i] = n[i];
+  while (b &#x3e;= 64) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; 64; i++) c[cpos+i] = m[mpos+i] ^ x[i];
+    u = 1;
+    for (i = 8; i &#x3c; 16; i++) {
+      u = u + (z[i] &#x26; 0xff) | 0;
+      z[i] = u &#x26; 0xff;
+      u &#x3e;&#x3e;&#x3e;= 8;
+    }
+    b -= 64;
+    cpos += 64;
+    mpos += 64;
+  }
+  if (b &#x3e; 0) {
+    crypto_core_salsa20(x,z,k,sigma);
+    for (i = 0; i &#x3c; b; i++) c[cpos+i] = m[mpos+i] ^ x[i];
+  }
+  return 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_stream_xor" id="apidoc.module.tweetnacl.lowlevel.crypto_stream_xor">module tweetnacl.lowlevel.crypto_stream_xor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_stream_xor.crypto_stream_xor" id="apidoc.element.tweetnacl.lowlevel.crypto_stream_xor.crypto_stream_xor">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_stream_xor
+        <span class="apidocSignatureSpan">(c, cpos, m, mpos, d, n, k)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_stream_xor(c, cpos, m, mpos, d, n, k) {
+  var s = new Uint8Array(32);
+  crypto_core_hsalsa20(s,n,k,sigma);
+  var sn = new Uint8Array(8);
+  for (var i = 0; i &#x3c; 8; i++) sn[i] = n[i+16];
+  return crypto_stream_salsa20_xor(c,cpos,m,mpos,d,sn,s);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_verify_16" id="apidoc.module.tweetnacl.lowlevel.crypto_verify_16">module tweetnacl.lowlevel.crypto_verify_16</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_16.crypto_verify_16" id="apidoc.element.tweetnacl.lowlevel.crypto_verify_16.crypto_verify_16">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_16
+        <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_verify_16(x, xi, y, yi) {
+  return vn(x,xi,y,yi,16);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.lowlevel.crypto_verify_32" id="apidoc.module.tweetnacl.lowlevel.crypto_verify_32">module tweetnacl.lowlevel.crypto_verify_32</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.lowlevel.crypto_verify_32.crypto_verify_32" id="apidoc.element.tweetnacl.lowlevel.crypto_verify_32.crypto_verify_32">
+        function <span class="apidocSignatureSpan">tweetnacl.lowlevel.</span>crypto_verify_32
+        <span class="apidocSignatureSpan">(x, xi, y, yi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function crypto_verify_32(x, xi, y, yi) {
+  return vn(x,xi,y,yi,32);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.nacl" id="apidoc.module.tweetnacl.nacl">module tweetnacl.nacl</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.box" id="apidoc.element.tweetnacl.nacl.box">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>box
+        <span class="apidocSignatureSpan">(msg, nonce, publicKey, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">box = function (msg, nonce, publicKey, secretKey) {
+  var k = nacl.box.before(publicKey, secretKey);
+  return nacl.secretbox(msg, nonce, k);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+#### nacl.box.keyPair.fromSecretKey(secretKey)
+
+Returns a key pair for box with public key corresponding to the given secret
+key.
+
+#### nacl.<span class="apidocCodeKeywordSpan">box</span>(message, nonce, theirPublicKey, mySecretKey)
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.hash" id="apidoc.element.tweetnacl.nacl.hash">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>hash
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hash = function (msg) {
+  checkArrayTypes(msg);
+  var h = new Uint8Array(crypto_hash_BYTES);
+  crypto_hash(h, msg, msg.length);
+  return h;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of signature in bytes.
+
+
+### Hashing
+
+Implements *SHA-512*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">hash</span>(message)
+
+Returns SHA-512 hash of the message.
+
+#### nacl.hash.hashLength = 64
+
+Length of hash in bytes.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.randomBytes" id="apidoc.element.tweetnacl.nacl.randomBytes">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>randomBytes
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randomBytes = function (n) {
+  var b = new Uint8Array(n);
+  randombytes(b, n);
+  return b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.hash.hashLength = 64
+
+Length of hash in bytes.
+
+
+### Random bytes generation
+
+#### nacl.<span class="apidocCodeKeywordSpan">randomBytes</span>(length)
+
+Returns a `Uint8Array` of the given length containing random bytes of
+cryptographic quality.
+
+**Implementation note**
+
+TweetNaCl.js uses the following methods to generate random bytes,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.scalarMult" id="apidoc.element.tweetnacl.nacl.scalarMult">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>scalarMult
+        <span class="apidocSignatureSpan">(n, p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scalarMult = function (n, p) {
+  checkArrayTypes(n, p);
+  if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error(&#x27;bad n size&#x27;);
+  if (p.length !== crypto_scalarmult_BYTES) throw new Error(&#x27;bad p size&#x27;);
+  var q = new Uint8Array(crypto_scalarmult_BYTES);
+  crypto_scalarmult(q, n, p);
+  return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of overhead added to secret box compared to original message.
+
+
+### Scalar multiplication
+
+Implements *curve25519*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">scalarMult</span>(n, p)
+
+Multiplies an integer `n` by a group element `p` and returns the resulting
+group element.
+
+#### nacl.scalarMult.base(n)
+
+Multiplies an integer `n` by a standard group element and returns the resulting
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.secretbox" id="apidoc.element.tweetnacl.nacl.secretbox">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>secretbox
+        <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">secretbox = function (msg, nonce, key) {
+  checkArrayTypes(msg, nonce, key);
+  checkLengths(key, nonce);
+  var m = new Uint8Array(crypto_secretbox_ZEROBYTES + msg.length);
+  var c = new Uint8Array(m.length);
+  for (var i = 0; i &#x3c; msg.length; i++) m[i+crypto_secretbox_ZEROBYTES] = msg[i];
+  crypto_secretbox(c, m, m.length, nonce, key);
+  return c.subarray(crypto_secretbox_BOXZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of overhead added to box compared to original message.
+
+
+### Secret-key authenticated encryption (secretbox)
+
+Implements *xsalsa20-poly1305*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">secretbox</span>(message, nonce, key)
+
+Encrypt and authenticates message using the key and the nonce. The nonce must
+be unique for each distinct message for this key.
+
+Returns an encrypted and authenticated message, which is
+`nacl.secretbox.overheadLength` longer than the original message.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.setPRNG" id="apidoc.element.tweetnacl.nacl.setPRNG">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>setPRNG
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setPRNG = function (fn) {
+  randombytes = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Other functions are deterministic and will continue working.
+
+If a platform you are targeting doesn&#x27;t implement secure random number
+generator, but you somehow have a cryptographically-strong source of entropy
+(not `Math.random`!), and you know what you are doing, you can plug it into
+TweetNaCl.js like this:
+
+    nacl.<span class="apidocCodeKeywordSpan">setPRNG</span>(function(x, n) {
+      // ... copy n random bytes into x ...
+    });
+
+Note that `nacl.setPRNG` *completely replaces* internal random byte generator
+with the one provided.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.sign" id="apidoc.element.tweetnacl.nacl.sign">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>sign
+        <span class="apidocSignatureSpan">(msg, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sign = function (msg, secretKey) {
+  checkArrayTypes(msg, secretKey);
+  if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
+    throw new Error(&#x27;bad secret key size&#x27;);
+  var signedMsg = new Uint8Array(crypto_sign_BYTES+msg.length);
+  crypto_sign(signedMsg, msg, msg.length, secretKey);
+  return signedMsg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.sign.keyPair.fromSeed(seed)
+
+Returns a new signing key pair generated deterministically from a 32-byte seed.
+The seed must contain enough entropy to be secure. This method is not
+recommended for general use: instead, use `nacl.sign.keyPair` to generate a new
+key pair from a random seed.
+
+#### nacl.<span class="apidocCodeKeywordSpan">sign</span>(message, secretKey)
+
+Signs the message using the secret key and returns a signed message.
+
+#### nacl.sign.open(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.nacl.verify" id="apidoc.element.tweetnacl.nacl.verify">
+        function <span class="apidocSignatureSpan">tweetnacl.nacl.</span>verify
+        <span class="apidocSignatureSpan">(x, y)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verify = function (x, y) {
+  checkArrayTypes(x, y);
+  // Zero length arguments are considered not equal.
+  if (x.length === 0 || y.length === 0) return false;
+  if (x.length !== y.length) return false;
+  return (vn(x, 0, y, 0, x.length) === 0) ? true : false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Returns `null` if verification failed.
+
+#### nacl.sign.detached(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.<span class="apidocCodeKeywordSpan">verify</span>(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+
+#### nacl.sign.publicKeyLength = 32
+
+Length of signing public key in bytes.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.randomBytes" id="apidoc.module.tweetnacl.randomBytes">module tweetnacl.randomBytes</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.randomBytes.randomBytes" id="apidoc.element.tweetnacl.randomBytes.randomBytes">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>randomBytes
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">randomBytes = function (n) {
+  var b = new Uint8Array(n);
+  randombytes(b, n);
+  return b;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.hash.hashLength = 64
+
+Length of hash in bytes.
+
+
+### Random bytes generation
+
+#### nacl.<span class="apidocCodeKeywordSpan">randomBytes</span>(length)
+
+Returns a `Uint8Array` of the given length containing random bytes of
+cryptographic quality.
+
+**Implementation note**
+
+TweetNaCl.js uses the following methods to generate random bytes,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.scalarMult" id="apidoc.module.tweetnacl.scalarMult">module tweetnacl.scalarMult</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.scalarMult.scalarMult" id="apidoc.element.tweetnacl.scalarMult.scalarMult">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>scalarMult
+        <span class="apidocSignatureSpan">(n, p)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">scalarMult = function (n, p) {
+  checkArrayTypes(n, p);
+  if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error(&#x27;bad n size&#x27;);
+  if (p.length !== crypto_scalarmult_BYTES) throw new Error(&#x27;bad p size&#x27;);
+  var q = new Uint8Array(crypto_scalarmult_BYTES);
+  crypto_scalarmult(q, n, p);
+  return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of overhead added to secret box compared to original message.
+
+
+### Scalar multiplication
+
+Implements *curve25519*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">scalarMult</span>(n, p)
+
+Multiplies an integer `n` by a group element `p` and returns the resulting
+group element.
+
+#### nacl.scalarMult.base(n)
+
+Multiplies an integer `n` by a standard group element and returns the resulting
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.scalarMult.base" id="apidoc.element.tweetnacl.scalarMult.base">
+        function <span class="apidocSignatureSpan">tweetnacl.scalarMult.</span>base
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">base = function (n) {
+  checkArrayTypes(n);
+  if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error(&#x27;bad n size&#x27;);
+  var q = new Uint8Array(crypto_scalarmult_BYTES);
+  crypto_scalarmult_base(q, n);
+  return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Implements *curve25519*.
+
+#### nacl.scalarMult(n, p)
+
+Multiplies an integer `n` by a group element `p` and returns the resulting
+group element.
+
+#### nacl.scalarMult.<span class="apidocCodeKeywordSpan">base</span>(n)
+
+Multiplies an integer `n` by a standard group element and returns the resulting
+group element.
+
+#### nacl.scalarMult.scalarLength = 32
+
+Length of scalar in bytes.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.scalarMult.base" id="apidoc.module.tweetnacl.scalarMult.base">module tweetnacl.scalarMult.base</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.scalarMult.base.base" id="apidoc.element.tweetnacl.scalarMult.base.base">
+        function <span class="apidocSignatureSpan">tweetnacl.scalarMult.</span>base
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">base = function (n) {
+  checkArrayTypes(n);
+  if (n.length !== crypto_scalarmult_SCALARBYTES) throw new Error(&#x27;bad n size&#x27;);
+  var q = new Uint8Array(crypto_scalarmult_BYTES);
+  crypto_scalarmult_base(q, n);
+  return q;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Implements *curve25519*.
+
+#### nacl.scalarMult(n, p)
+
+Multiplies an integer `n` by a group element `p` and returns the resulting
+group element.
+
+#### nacl.scalarMult.<span class="apidocCodeKeywordSpan">base</span>(n)
+
+Multiplies an integer `n` by a standard group element and returns the resulting
+group element.
+
+#### nacl.scalarMult.scalarLength = 32
+
+Length of scalar in bytes.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.secretbox" id="apidoc.module.tweetnacl.secretbox">module tweetnacl.secretbox</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.secretbox.secretbox" id="apidoc.element.tweetnacl.secretbox.secretbox">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>secretbox
+        <span class="apidocSignatureSpan">(msg, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">secretbox = function (msg, nonce, key) {
+  checkArrayTypes(msg, nonce, key);
+  checkLengths(key, nonce);
+  var m = new Uint8Array(crypto_secretbox_ZEROBYTES + msg.length);
+  var c = new Uint8Array(m.length);
+  for (var i = 0; i &#x3c; msg.length; i++) m[i+crypto_secretbox_ZEROBYTES] = msg[i];
+  crypto_secretbox(c, m, m.length, nonce, key);
+  return c.subarray(crypto_secretbox_BOXZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Length of overhead added to box compared to original message.
+
+
+### Secret-key authenticated encryption (secretbox)
+
+Implements *xsalsa20-poly1305*.
+
+#### nacl.<span class="apidocCodeKeywordSpan">secretbox</span>(message, nonce, key)
+
+Encrypt and authenticates message using the key and the nonce. The nonce must
+be unique for each distinct message for this key.
+
+Returns an encrypted and authenticated message, which is
+`nacl.secretbox.overheadLength` longer than the original message.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.secretbox.open" id="apidoc.element.tweetnacl.secretbox.open">
+        function <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>open
+        <span class="apidocSignatureSpan">(box, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (box, nonce, key) {
+  checkArrayTypes(box, nonce, key);
+  checkLengths(key, nonce);
+  var c = new Uint8Array(crypto_secretbox_BOXZEROBYTES + box.length);
+  var m = new Uint8Array(c.length);
+  for (var i = 0; i &#x3c; box.length; i++) c[i+crypto_secretbox_BOXZEROBYTES] = box[i];
+  if (c.length &#x3c; 32) return false;
+  if (crypto_secretbox_open(m, c, c.length, nonce, key) !== 0) return false;
+  return m.subarray(crypto_secretbox_ZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.secretbox.open" id="apidoc.module.tweetnacl.secretbox.open">module tweetnacl.secretbox.open</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.secretbox.open.open" id="apidoc.element.tweetnacl.secretbox.open.open">
+        function <span class="apidocSignatureSpan">tweetnacl.secretbox.</span>open
+        <span class="apidocSignatureSpan">(box, nonce, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (box, nonce, key) {
+  checkArrayTypes(box, nonce, key);
+  checkLengths(key, nonce);
+  var c = new Uint8Array(crypto_secretbox_BOXZEROBYTES + box.length);
+  var m = new Uint8Array(c.length);
+  for (var i = 0; i &#x3c; box.length; i++) c[i+crypto_secretbox_BOXZEROBYTES] = box[i];
+  if (c.length &#x3c; 32) return false;
+  if (crypto_secretbox_open(m, c, c.length, nonce, key) !== 0) return false;
+  return m.subarray(crypto_secretbox_ZEROBYTES);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.setPRNG" id="apidoc.module.tweetnacl.setPRNG">module tweetnacl.setPRNG</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.setPRNG.setPRNG" id="apidoc.element.tweetnacl.setPRNG.setPRNG">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>setPRNG
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setPRNG = function (fn) {
+  randombytes = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Other functions are deterministic and will continue working.
+
+If a platform you are targeting doesn&#x27;t implement secure random number
+generator, but you somehow have a cryptographically-strong source of entropy
+(not `Math.random`!), and you know what you are doing, you can plug it into
+TweetNaCl.js like this:
+
+    nacl.<span class="apidocCodeKeywordSpan">setPRNG</span>(function(x, n) {
+      // ... copy n random bytes into x ...
+    });
+
+Note that `nacl.setPRNG` *completely replaces* internal random byte generator
+with the one provided.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.sign" id="apidoc.module.tweetnacl.sign">module tweetnacl.sign</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.sign" id="apidoc.element.tweetnacl.sign.sign">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>sign
+        <span class="apidocSignatureSpan">(msg, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sign = function (msg, secretKey) {
+  checkArrayTypes(msg, secretKey);
+  if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
+    throw new Error(&#x27;bad secret key size&#x27;);
+  var signedMsg = new Uint8Array(crypto_sign_BYTES+msg.length);
+  crypto_sign(signedMsg, msg, msg.length, secretKey);
+  return signedMsg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+#### nacl.sign.keyPair.fromSeed(seed)
+
+Returns a new signing key pair generated deterministically from a 32-byte seed.
+The seed must contain enough entropy to be secure. This method is not
+recommended for general use: instead, use `nacl.sign.keyPair` to generate a new
+key pair from a random seed.
+
+#### nacl.<span class="apidocCodeKeywordSpan">sign</span>(message, secretKey)
+
+Signs the message using the secret key and returns a signed message.
+
+#### nacl.sign.open(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.detached" id="apidoc.element.tweetnacl.sign.detached">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.</span>detached
+        <span class="apidocSignatureSpan">(msg, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detached = function (msg, secretKey) {
+  var signedMsg = nacl.sign(msg, secretKey);
+  var sig = new Uint8Array(crypto_sign_BYTES);
+  for (var i = 0; i &#x3c; sig.length; i++) sig[i] = signedMsg[i];
+  return sig;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### nacl.sign.open(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+
+Returns `null` if verification failed.
+
+#### nacl.sign.<span class="apidocCodeKeywordSpan">detached</span>(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.verify(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.keyPair" id="apidoc.element.tweetnacl.sign.keyPair">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.</span>keyPair
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">keyPair = function () {
+  var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_sign_SECRETKEYBYTES);
+  crypto_sign_keypair(pk, sk);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+subarrays of their buffers.
+
+
+### Public-key authenticated encryption (box)
+
+Implements *curve25519-xsalsa20-poly1305*.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">keyPair</span>()
+
+Generates a new random key pair for box and returns it as an object with
+`publicKey` and `secretKey` members:
+
+{
+   publicKey: ...,  // Uint8Array with 32-byte public key
+   secretKey: ...   // Uint8Array with 32-byte secret key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.open" id="apidoc.element.tweetnacl.sign.open">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.</span>open
+        <span class="apidocSignatureSpan">(signedMsg, publicKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (signedMsg, publicKey) {
+  if (arguments.length !== 2)
+    throw new Error(&#x27;nacl.sign.open accepts 2 arguments; did you mean to use nacl.sign.detached.verify?&#x27;);
+  checkArrayTypes(signedMsg, publicKey);
+  if (publicKey.length !== crypto_sign_PUBLICKEYBYTES)
+    throw new Error(&#x27;bad public key size&#x27;);
+  var tmp = new Uint8Array(signedMsg.length);
+  var mlen = crypto_sign_open(tmp, signedMsg, signedMsg.length, publicKey);
+  if (mlen &#x3c; 0) return null;
+  var m = new Uint8Array(mlen);
+  for (var i = 0; i &#x3c; m.length; i++) m[i] = tmp[i];
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.sign.detached" id="apidoc.module.tweetnacl.sign.detached">module tweetnacl.sign.detached</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.detached.detached" id="apidoc.element.tweetnacl.sign.detached.detached">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.</span>detached
+        <span class="apidocSignatureSpan">(msg, secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">detached = function (msg, secretKey) {
+  var signedMsg = nacl.sign(msg, secretKey);
+  var sig = new Uint8Array(crypto_sign_BYTES);
+  for (var i = 0; i &#x3c; sig.length; i++) sig[i] = signedMsg[i];
+  return sig;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### nacl.sign.open(signedMessage, publicKey)
+
+Verifies the signed message and returns the message without signature.
+
+Returns `null` if verification failed.
+
+#### nacl.sign.<span class="apidocCodeKeywordSpan">detached</span>(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.verify(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.detached.verify" id="apidoc.element.tweetnacl.sign.detached.verify">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.detached.</span>verify
+        <span class="apidocSignatureSpan">(msg, sig, publicKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verify = function (msg, sig, publicKey) {
+  checkArrayTypes(msg, sig, publicKey);
+  if (sig.length !== crypto_sign_BYTES)
+    throw new Error(&#x27;bad signature size&#x27;);
+  if (publicKey.length !== crypto_sign_PUBLICKEYBYTES)
+    throw new Error(&#x27;bad public key size&#x27;);
+  var sm = new Uint8Array(crypto_sign_BYTES + msg.length);
+  var m = new Uint8Array(crypto_sign_BYTES + msg.length);
+  var i;
+  for (i = 0; i &#x3c; crypto_sign_BYTES; i++) sm[i] = sig[i];
+  for (i = 0; i &#x3c; msg.length; i++) sm[i+crypto_sign_BYTES] = msg[i];
+  return (crypto_sign_open(m, sm, sm.length, publicKey) &#x3e;= 0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Returns `null` if verification failed.
+
+#### nacl.sign.detached(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.<span class="apidocCodeKeywordSpan">verify</span>(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+
+#### nacl.sign.publicKeyLength = 32
+
+Length of signing public key in bytes.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.sign.keyPair" id="apidoc.module.tweetnacl.sign.keyPair">module tweetnacl.sign.keyPair</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.keyPair.keyPair" id="apidoc.element.tweetnacl.sign.keyPair.keyPair">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.</span>keyPair
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">keyPair = function () {
+  var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_sign_SECRETKEYBYTES);
+  crypto_sign_keypair(pk, sk);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+subarrays of their buffers.
+
+
+### Public-key authenticated encryption (box)
+
+Implements *curve25519-xsalsa20-poly1305*.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">keyPair</span>()
+
+Generates a new random key pair for box and returns it as an object with
+`publicKey` and `secretKey` members:
+
+{
+   publicKey: ...,  // Uint8Array with 32-byte public key
+   secretKey: ...   // Uint8Array with 32-byte secret key
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.keyPair.fromSecretKey" id="apidoc.element.tweetnacl.sign.keyPair.fromSecretKey">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.keyPair.</span>fromSecretKey
+        <span class="apidocSignatureSpan">(secretKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromSecretKey = function (secretKey) {
+  checkArrayTypes(secretKey);
+  if (secretKey.length !== crypto_sign_SECRETKEYBYTES)
+    throw new Error(&#x27;bad secret key size&#x27;);
+  var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
+  for (var i = 0; i &#x3c; pk.length; i++) pk[i] = secretKey[32+i];
+  return {publicKey: pk, secretKey: new Uint8Array(secretKey)};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    {
+       publicKey: ...,  // Uint8Array with 32-byte public key
+       secretKey: ...   // Uint8Array with 32-byte secret key
+    }
+
+
+#### nacl.box.keyPair.<span class="apidocCodeKeywordSpan">fromSecretKey</span>(secretKey)
+
+Returns a key pair for box with public key corresponding to the given secret
+key.
+
+#### nacl.box(message, nonce, theirPublicKey, mySecretKey)
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.keyPair.fromSeed" id="apidoc.element.tweetnacl.sign.keyPair.fromSeed">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.keyPair.</span>fromSeed
+        <span class="apidocSignatureSpan">(seed)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromSeed = function (seed) {
+  checkArrayTypes(seed);
+  if (seed.length !== crypto_sign_SEEDBYTES)
+    throw new Error(&#x27;bad seed size&#x27;);
+  var pk = new Uint8Array(crypto_sign_PUBLICKEYBYTES);
+  var sk = new Uint8Array(crypto_sign_SECRETKEYBYTES);
+  for (var i = 0; i &#x3c; 32; i++) sk[i] = seed[i];
+  crypto_sign_keypair(pk, sk, true);
+  return {publicKey: pk, secretKey: sk};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+#### nacl.sign.keyPair.fromSecretKey(secretKey)
+
+Returns a signing key pair with public key corresponding to the given
+64-byte secret key. The secret key must have been generated by
+`nacl.sign.keyPair` or `nacl.sign.keyPair.fromSeed`.
+
+#### nacl.sign.keyPair.<span class="apidocCodeKeywordSpan">fromSeed</span>(seed)
+
+Returns a new signing key pair generated deterministically from a 32-byte seed.
+The seed must contain enough entropy to be secure. This method is not
+recommended for general use: instead, use `nacl.sign.keyPair` to generate a new
+key pair from a random seed.
+
+#### nacl.sign(message, secretKey)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.sign.open" id="apidoc.module.tweetnacl.sign.open">module tweetnacl.sign.open</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.sign.open.open" id="apidoc.element.tweetnacl.sign.open.open">
+        function <span class="apidocSignatureSpan">tweetnacl.sign.</span>open
+        <span class="apidocSignatureSpan">(signedMsg, publicKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (signedMsg, publicKey) {
+  if (arguments.length !== 2)
+    throw new Error(&#x27;nacl.sign.open accepts 2 arguments; did you mean to use nacl.sign.detached.verify?&#x27;);
+  checkArrayTypes(signedMsg, publicKey);
+  if (publicKey.length !== crypto_sign_PUBLICKEYBYTES)
+    throw new Error(&#x27;bad public key size&#x27;);
+  var tmp = new Uint8Array(signedMsg.length);
+  var mlen = crypto_sign_open(tmp, signedMsg, signedMsg.length, publicKey);
+  if (mlen &#x3c; 0) return null;
+  var m = new Uint8Array(mlen);
+  for (var i = 0; i &#x3c; m.length; i++) m[i] = tmp[i];
+  return m;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Encrypt and authenticates message using peer&#x27;s public key, our secret key, and
+the given nonce, which must be unique for each distinct message for a key pair.
+
+Returns an encrypted and authenticated message, which is
+`nacl.box.overheadLength` longer than the original message.
+
+#### nacl.box.<span class="apidocCodeKeywordSpan">open</span>(box, nonce, theirPublicKey, mySecretKey)
+
+Authenticates and decrypts the given box with peer&#x27;s public key, our secret
+key, and the given nonce.
+
+Returns the original message, or `false` if authentication fails.
+
+#### nacl.box.before(theirPublicKey, mySecretKey)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.util" id="apidoc.module.tweetnacl.util">module tweetnacl.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.util.decodeBase64" id="apidoc.element.tweetnacl.util.decodeBase64">
+        function <span class="apidocSignatureSpan">tweetnacl.util.</span>decodeBase64
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decodeBase64 = function () {
+  throw new Error(&#x27;nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.util.decodeUTF8" id="apidoc.element.tweetnacl.util.decodeUTF8">
+        function <span class="apidocSignatureSpan">tweetnacl.util.</span>decodeUTF8
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decodeUTF8 = function () {
+  throw new Error(&#x27;nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.util.encodeBase64" id="apidoc.element.tweetnacl.util.encodeBase64">
+        function <span class="apidocSignatureSpan">tweetnacl.util.</span>encodeBase64
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">encodeBase64 = function () {
+  throw new Error(&#x27;nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.util.encodeUTF8" id="apidoc.element.tweetnacl.util.encodeUTF8">
+        function <span class="apidocSignatureSpan">tweetnacl.util.</span>encodeUTF8
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">encodeUTF8 = function () {
+  throw new Error(&#x27;nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.util.decodeBase64" id="apidoc.module.tweetnacl.util.decodeBase64">module tweetnacl.util.decodeBase64</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.util.decodeBase64.decodeBase64" id="apidoc.element.tweetnacl.util.decodeBase64.decodeBase64">
+        function <span class="apidocSignatureSpan">tweetnacl.util.</span>decodeBase64
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">decodeBase64 = function () {
+  throw new Error(&#x27;nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.tweetnacl.verify" id="apidoc.module.tweetnacl.verify">module tweetnacl.verify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.tweetnacl.verify.verify" id="apidoc.element.tweetnacl.verify.verify">
+        function <span class="apidocSignatureSpan">tweetnacl.</span>verify
+        <span class="apidocSignatureSpan">(x, y)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">verify = function (x, y) {
+  checkArrayTypes(x, y);
+  // Zero length arguments are considered not equal.
+  if (x.length === 0 || y.length === 0) return false;
+  if (x.length !== y.length) return false;
+  return (vn(x, 0, y, 0, x.length) === 0) ? true : false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Returns `null` if verification failed.
+
+#### nacl.sign.detached(message, secretKey)
+
+Signs the message using the secret key and returns a signature.
+
+#### nacl.sign.detached.<span class="apidocCodeKeywordSpan">verify</span>(message, signature, publicKey)
+
+Verifies the signature for the message and returns `true` if verification
+succeeded or `false` if it failed.
+
+#### nacl.sign.publicKeyLength = 32
+
+Length of signing public key in bytes.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
